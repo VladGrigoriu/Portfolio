@@ -1,0 +1,83 @@
+#presentation{
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@keyframes lights {
+    0% {
+      color: var(--name-color);
+      text-shadow:
+        0 0 1em hsla(139, 100%, 50%, 0.2),
+        0 0 0.125em hsla(122, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+    30% { 
+      color: var(--name-color);
+      text-shadow:
+        0 0 1em hsla(134, 100%, 50%, 0.5),
+        0 0 0.125em hsla(104, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    40% { 
+      color: var(--name-color);
+      text-shadow:
+        0 0 1em hsla(138, 100%, 50%, 0.5),
+        0 0 0.125em hsla(133, 100%, 90%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    70% {
+      color: var(--name-color);
+      text-shadow:
+        0 0 1em hsla(136, 100%, 50%, 0.5),
+        0 0 0.125em hsla(133, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    100% {
+        color: var(--name-color);
+        text-shadow:
+          0 0 1em hsla(122, 100%, 50%, 0.5),
+          0 0 0.125em hsla(143, 100%, 60%, 0.5),
+          0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+          -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        opacity: 1;
+    }
+    
+  }
+
+  @keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+  
+
+#name {
+    /* margin: auto; */
+    font-size: 3.5rem;
+    font-weight: 300;
+    animation: lights 3s 750ms linear forwards;
+    opacity: 0;
+}
+#short-description{
+    color: var(--name-color);
+    margin-top: 20px;
+    font-size: 30px;
+    opacity: 0;
+    animation: show 1.5s 750ms linear forwards;
+    animation-delay: 3s;
+}

@@ -1,0 +1,109 @@
+#welcome{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--text-color);
+    overflow: hidden;
+} 
+#drop-text{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    font-size: 30px;
+    color: var(--text-color);
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: var(--primary-color);
+
+}
+.drop {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 175px auto;
+    top: -30px;
+    margin: 0 auto;
+    background: var(--primary-color);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+}
+  
+.drop:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 30px solid var(--primary-color);
+    top: -22px;
+}
+@keyframes drip {
+    to {
+      top: 50%;
+    }
+}  
+.circle__wrapper { 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    -webkit-transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%); 
+  }
+  
+  .circle__wrapper p.circle { 
+    display:block; 
+    height: 2000px; 
+    width: 2000px; 
+    background-color: var(--primary-color); 
+    -webkit-border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    border-radius: 50%; 
+    -webkit-animation: growUp 2s forwards; /* You can remove 1.5s if you don't want delay */
+    -moz-animation: growUp 2s forwards; 
+    -ms-animation: growUp 2s forwards; 
+    -o-animation: growUp 2s forwards; 
+    animation: growUp 2s forwards; 
+    opacity: 0;
+    animation-delay: 4s;
+  }
+  
+  
+  @-webkit-keyframes growUp {   
+    0%  { -webkit-transform: scale(0); opacity: 0; }
+    100% { -webkit-transform: scale(1); }
+  }
+  
+  @-moz-keyframes growUp {
+    0%  { -moz-transform: scale(0); opacity: 0; }
+    100% { -moz-transform: scale(1); opacity: 1; }
+  }
+  
+  @-o-keyframes growUp {
+    0%  { -o-transform: scale(0); opacity: 0; }
+    100% { -o-transform: scale(1); opacity: 1; }
+  }
+  
+  @-ms-keyframes growUp {
+    0%  { -ms-transform: scale(0); opacity: 0; }
+    100% { -ms-transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes growUp {
+    0%  { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
