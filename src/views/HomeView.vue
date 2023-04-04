@@ -1,6 +1,6 @@
 <template>
   <main id="welcome">
-    <h2 id="drop-text">Quello che facciamo è solo una goccia nell'oceano, ma l'oceano senza quella goccia sarebbe più piccolo</h2>
+    <h2 id="drop-text">{{ $t('welcome_message') }}</h2>
     <div class="drop"></div>
       <!-- <div class="circle"></div> -->
       <div class="circle__wrapper">
