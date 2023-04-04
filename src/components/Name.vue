@@ -20,7 +20,7 @@ svg {
     display: block;
     font: 10.5em 'Dancing Script', cursive;
     width: 500px;
-    height: 250px;
+    height: 160px;
     /* margin: 0 auto; */
     margin-left: -30px;
 }
@@ -33,6 +33,7 @@ svg {
     animation: stroke-offset 3s forwards linear;
     opacity: 0;
     animation-delay: 1s;
+    transition: stroke-dasharray 5s ease;
 }
 
 .text-copy:nth-child(1){
@@ -41,6 +42,10 @@ svg {
   stroke-dasharray: 150px;
 }
 
+svg:hover .text-copy{
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1;
+}
 
 @keyframes stroke-offset{
     to {

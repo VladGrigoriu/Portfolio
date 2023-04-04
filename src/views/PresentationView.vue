@@ -1,12 +1,7 @@
 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
 <template>
     <main id="presentation">
-        <header class="header">
-            <a target="_blank" href="https://it.linkedin.com/in/vladgrigoriu"><FontAwesomeIcon icon="fa-brands fa-linkedin" class="icons"/></a>
-            <a target="_blank" href="https://github.com/VladGrigoriu"><FontAwesomeIcon icon="fa-brands fa-github" class="icons ml mr"/></a>
-        </header>
+        <BaseHeader />
         <div class="separator"></div>
         <div class="vertical-separator"></div>
         <div id="bio">
@@ -14,45 +9,29 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             <span id="short-description" class="cursive">{{ $t('short_description') }}</span>
         </div>
         <div id="customize-experience">
-            <h2>Customize your experience</h2><br>
-            <h3>Choose Theme</h3>
-            <div id="theme-selector">
-                <div class="single-theme-container" @click="setTheme('dark')">
-                    <div class="single-theme dark"></div>
-                    <p>Dark</p>
-                </div>
-                <div class="single-theme-container" @click="setTheme('light')">
-                    <div class="single-theme light"></div>
-                    <p>Light</p>
-                </div>
-                <div class="single-theme-container" @click="setTheme('cyan')">
-                    <div class="single-theme cyan"></div>
-                    <p>Cyan</p>
-                </div>
-                <div class="single-theme-container" @click="setTheme('beige')">
-                    <div class="single-theme beige"></div>
-                    <p>Beige</p>
-                </div>
-            </div>
+            <h2>{{ $t('customize') }}</h2><br>
+            <h3>{{ $t('choose_theme') }}</h3>
+            <ThemeSwitcher>
+                <template #themes>
+                    <SingleTheme theme="dark" themeName="Dark" />
+                    <SingleTheme theme="light" themeName="Light" />
+                    <SingleTheme theme="cyan" themeName="Cyan" />
+                    <SingleTheme theme="beige" themeName="Beige" />
+                    <SingleTheme theme="night-blue" themeName="Night Blue" />
+                </template>
+            </ThemeSwitcher>
         </div>
     </main>
 </template>
 
 <script>
+import BaseHeader from '../components/Headers/BaseHeader.vue';
 import Name from '../components/Name.vue';
-import { useThemeStore } from '../stores/theme'
+import SingleTheme from '../components/ThemeSwitcher/SingleTheme.vue';
+import ThemeSwitcher from '../components/ThemeSwitcher/ThemeSwitcher.vue';
 
 export default {
-    components: { Name },
-    setup(){
-        const themeStore = useThemeStore();
-        return { themeStore };
-    },
-    methods:{
-        setTheme(theme){
-            this.themeStore.setTheme(theme);
-        }
-    }
+    components: { Name, BaseHeader, ThemeSwitcher, SingleTheme }
 }
 </script>
 

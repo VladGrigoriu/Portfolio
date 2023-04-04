@@ -19,7 +19,6 @@
 
 #short-description{
     color: var(--name-color);
-    margin-top: 20px;
     font-size: 30px;
     opacity: 0;
     animation: show 1.5s 750ms linear forwards;
@@ -41,7 +40,7 @@
   width: 1px;
   background: var(--text-color);
   position: absolute;
-  left: 60%;
+  left: 50%;
   -webkit-animation: dude2 .75s 1 forwards;
   -moz-animation: dude2 .75s 1 forwards;
   -o-animation: dude2 .75s 1 forwards;
@@ -49,29 +48,11 @@
   animation-delay: 2.5s;
   z-index: 1;
 }
-.icons{
-  -webkit-animation: show .75s 1 forwards;
-    -moz-animation: show .75s 1 forwards;
-    -o-animation: show .75s 1 forwards;
-    animation: show .75s 1 forwards;
-    animation-delay: 3s;
-    opacity: 0;
-}
-.header{
-  display: flex;
-  width: 100%;
-  align-items: center;
-  height: 50px;
-  justify-content: flex-end;
-  position: absolute;
-  top: 0;
-  z-index: 99;
-  background-color: var(--primary-color);
-}
+
 #customize-experience{
   position: absolute;
-  width: 40%;
-  left: 60%;
+  width: 50%;
+  left: 50%;
   background-color: var(--secondary-color);
   height: 100%;
   top: 51px;
@@ -89,42 +70,10 @@
   color: var(--text-color);
 }
 #bio{
-  margin-left: 10%;
+  margin-left: 5%;
 }
-#theme-selector{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 20px;
-}
-.single-theme-container{
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.single-theme{
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  border: .3px solid var(--text-color);
-  cursor: pointer;
-}
-.dark{
-  background-color: #161c23;
-}
-.light{
-  background-color: #e8ecf3;
-}
-.cyan{
-  background-color: #E0FFFF;
-}
-.beige{
-  background-color: #fff0db;
-}
+
+
 @-webkit-keyframes dude {
   0% {
     width: 0;

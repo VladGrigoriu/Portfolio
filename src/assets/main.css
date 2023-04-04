@@ -17,6 +17,7 @@
   --text-color:#161c23;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
+  --wave-color:#161c2348;
 }
  [data-theme="dark"] {
   --primary-color:#161c23;
@@ -24,6 +25,7 @@
   --text-color:#ccd7e8;
   --name-color: hsl(230, 40%, 80%);
   --name-color2: hsl(230, 15%, 92%);
+  --wave-color:#ccd7e849;
 }
 [data-theme="cyan"] {
   --primary-color: #E0FFFF;
@@ -31,6 +33,7 @@
   --text-color:#1b2424;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
+  --wave-color:#1b24243d;
 }
 [data-theme="beige"]{
   --primary-color: #fff0db;
@@ -38,6 +41,16 @@
   --text-color:#101717;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
+  --wave-color:#1017173e;
+  
+}
+[data-theme="night-blue"]{
+  --primary-color: #003366;
+  --secondary-color:#002951;
+  --text-color:#ccd7e8;
+  --name-color: hsl(230, 40%, 80%);
+  --name-color2: hsl(230, 15%, 92%);
+  --wave-color:#ccd7e83e;
 }
  #app {
    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -47,6 +60,9 @@
   font-size: 25px;
   color: var(--text-color);
   cursor: pointer;
+}
+.icons:hover{
+color: var(--name-color2);
 }
  .mr{
   margin-right: 20px;
