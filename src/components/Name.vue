@@ -53,4 +53,15 @@ svg:hover .text-copy{
         opacity: 1;
     }
 }
+
+@media screen and (max-width:450px){
+    svg{
+        display: block;
+        font: 10.5em 'Dancing Script', cursive;
+        width: 280px;
+        height: 120px;
+        /* margin: 0 auto; */
+        margin-left: -30px;
+    }
+}
 </style>

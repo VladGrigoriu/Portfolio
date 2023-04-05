@@ -67,4 +67,10 @@ export default {
 .active{
   transform: scale(1.2);
 }
+
+@media screen and (max-width:450px){
+  .theme-name{
+    font-size: 14px;
+  }
+}
 </style>

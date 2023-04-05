@@ -5,7 +5,7 @@
     <div class="wave"></div>
       <!-- <div class="circle"></div> -->
       <div class="circle__wrapper">
-        <p class="circle"></p>
+        <p class="circle"></p> 
       </div>
   </main>
 </template>

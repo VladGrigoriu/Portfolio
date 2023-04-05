@@ -26,7 +26,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
-    transition: box-shadow 300ms ease;
+    transition: box-shadow background-color color 300ms ease;
 }
 .single-style-selector:hover{
     background-color: var(--name-color);

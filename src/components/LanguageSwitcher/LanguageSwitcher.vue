@@ -134,5 +134,17 @@ export default {
         width: 50px;
     }
 
+    #locales-dropdown{
+        width: 100%;
+        flex-direction: column;
+    }
+    .flags-container{
+        padding: 5px 10px;
+    }
+    .flag-icon{
+        width: 15px;
+        height: 15px;
+    }
+
   }
 </style>

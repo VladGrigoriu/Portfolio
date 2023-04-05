@@ -14,6 +14,21 @@ const router = createRouter({
       path: '/presentation',
       name: 'presentation',
       component: lazyLoad('PresentationView')
+    },
+    {
+      path: '/business',
+      name: 'business',
+      component: lazyLoad('Business')
+    },
+    {
+      path: '/interactive',
+      name: 'interactive',
+      component: lazyLoad('Interactive')
+    },
+    {
+      path: '/hacker',
+      name: 'hacker',
+      component: lazyLoad('Hacker')
     }
   ]
 })
