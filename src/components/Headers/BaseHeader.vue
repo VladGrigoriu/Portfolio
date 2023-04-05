@@ -2,7 +2,7 @@
 <template>
     <header class="header">
       <LanguageSwitcher />
-        <a target="_blank" href="https://it.linkedin.com/in/vladgrigoriu"><FontAwesomeIcon icon="fa-brands fa-linkedin" class="icons"/></a>
+        <a target="_blank" href="https://it.linkedin.com/in/vladgrigoriu"><FontAwesomeIcon icon="fa-brands fa-linkedin" class="icons ml"/></a>
         <a target="_blank" href="https://github.com/VladGrigoriu"><FontAwesomeIcon icon="fa-brands fa-github" class="icons ml mr"/></a>
     </header>
 </template>
@@ -35,13 +35,6 @@ export default {
   z-index: 99;
   background-color: var(--primary-color);
 }
-@keyframes show {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-  }
+
   
 </style>

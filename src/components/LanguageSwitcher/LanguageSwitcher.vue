@@ -69,13 +69,13 @@ export default {
     background-color: var(--secondary-color);
 }
 .static-flag-icon{
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     cursor: pointer;
-    padding: 3px;
-    border: 1px solid var(--btn-color);
-    margin-top: -5px;
+    /* padding: 3px; */
+    border: 1px solid var(--text-color);
+    /* margin-top: -5px; */
 }
 .flag-icon{
     width: 25px;
@@ -84,11 +84,13 @@ export default {
     cursor: pointer;
 }
 #language-switcher-container{
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: show 1.5s 750ms linear forwards;
+    animation-delay: 3s;
+    opacity: 0;
 }
 #locales-dropdown{
     pointer-events: none;
@@ -99,6 +101,7 @@ export default {
     right: 0;
     margin-top: 10px;
     background-color: var(--primary-color);
+    border: 0.5px solid var(--text-color);
     border-radius: 10px;
     width: 49.9%;
     box-shadow: inset rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

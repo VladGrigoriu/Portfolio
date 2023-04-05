@@ -20,7 +20,18 @@
                     <SingleTheme theme="night-blue" themeName="Night Blue" />
                 </template>
             </ThemeSwitcher>
+            <h3>Choose style</h3>
+            <div id="style-switcher">
+                <SingleStyle name="Business" img="business.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Interactive" img="interactive.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Old Fashion" img="old_fashion.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+            </div>
+            <button class="btn continue" @click="startExperience">Continue</button>
         </div>
+
+        <div id="sliding-bg"></div>
+
     </main>
 </template>
 
@@ -29,9 +40,24 @@ import BaseHeader from '../components/Headers/BaseHeader.vue';
 import Name from '../components/Name.vue';
 import SingleTheme from '../components/ThemeSwitcher/SingleTheme.vue';
 import ThemeSwitcher from '../components/ThemeSwitcher/ThemeSwitcher.vue';
+import SingleStyle from '../components/StyleCustomization/SingleStyle.vue';
+
 
 export default {
-    components: { Name, BaseHeader, ThemeSwitcher, SingleTheme }
+    components: { Name, BaseHeader, ThemeSwitcher, SingleTheme, SingleStyle },
+    data(){
+        return {
+            selectedStyle: 'Business'
+        }
+    },
+    methods:{
+        selectStyle(style){
+            this.selectedStyle=style;
+        },
+        startExperience(){
+            document.getElementById('sliding-bg').classList.add('sliding-animation');
+        }
+    }
 }
 </script>
 

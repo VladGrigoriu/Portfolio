@@ -6,15 +6,6 @@
     justify-content: center;
     flex-direction: column;
 }
-
-  @keyframes show {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-  }
   
 
 #short-description{
@@ -72,7 +63,37 @@
 #bio{
   margin-left: 5%;
 }
+#style-switcher{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  row-gap: 30px;
+  margin-top: 20px;
+}
+.continue{
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+}
+#sliding-bg{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 100%;
+  background-color: var(--primary-color);
+  z-index: 9999;
+}
 
+.sliding-animation{
+  animation: slide 1s 1 forwards;
+}
+
+@keyframes slide{
+  to{
+    left: 0;
+  }
+}
 
 @-webkit-keyframes dude {
   0% {
