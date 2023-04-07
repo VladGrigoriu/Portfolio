@@ -27,7 +27,7 @@
             <div id="style-switcher">
                 <SingleStyle name="Business" img="business.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Interactive" img="interactive.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
-                <SingleStyle name="Old Fashion" img="old_fashion.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Retro" img="old_fashion.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
             </div>
             <button class="btn continue" @click="startExperience">Continue</button>
@@ -45,7 +45,7 @@
 
         <canvas id="hacker-canvas"></canvas>
 
-        
+        <div class="book_page"></div>
         
 
     </main>
@@ -67,7 +67,9 @@ export default {
         }
     },
     mounted(){
-        
+        document.getElementById('sliding-bg').classList.remove('sliding-animation');
+        document.getElementById('interactive-id').classList.remove('loader--active');
+        document.getElementById('hacker-canvas').style.display='none';
     },
     methods:{
         glitch() {
@@ -88,7 +90,7 @@ export default {
             canvas.width = innerWidth;
             canvas.height = innerHeight;
 
-            ctx.fillStyle = "#1a191c";
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');;
             ctx.fillRect(0, 0, innerWidth, innerHeight);
 
             // texts(colors[Math.floor(Math.random() * 7)]);
@@ -133,20 +135,24 @@ export default {
                 case 'Business':
                     document.getElementById('sliding-bg').classList.add('sliding-animation');
                     setTimeout(() => {
-                        this.$router.push('/business')
+                        this.$router.push('/business');
                     }, 1000);
                     break;
                 case 'Interactive':
                     document.getElementById('interactive-id').classList.add('loader--active');
                     setTimeout(() => {
-                        this.$router.push('/interactive')
+                        this.$router.push('/interactive');
                     }, 1500);
                     break;
                 case 'Hacker':
+                    document.getElementById('hacker-canvas').style.display='block';
                     this.glitch();
                     setTimeout(() => {
-                        this.$router.push('/hacker')
+                        this.$router.push('/hacker');
                     }, 3000);
+                    break;
+                case 'Retro':
+                    this.$router.push('/retro');
             }
 
         }

@@ -6,10 +6,10 @@ import { i18n } from './i18n/i18n'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import './assets/main.css'
 
-library.add(faGithub, faLinkedin, faCaretDown);
+library.add(faGithub, faLinkedin, faCaretDown, faEnvelope);
 
 const pinia = createPinia()
 

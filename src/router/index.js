@@ -11,8 +11,8 @@ const router = createRouter({
       component: lazyLoad('HomeView')
     },
     {
-      path: '/presentation',
-      name: 'presentation',
+      path: '/introduction',
+      name: 'introduction',
       component: lazyLoad('PresentationView')
     },
     {
@@ -29,6 +29,11 @@ const router = createRouter({
       path: '/hacker',
       name: 'hacker',
       component: lazyLoad('Hacker')
+    },
+    {
+      path: '/retro',
+      name: 'retro',
+      component: lazyLoad('Retro')
     }
   ]
 })

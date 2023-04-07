@@ -1,5 +1,5 @@
 <template>
-    <svg viewBox="0 0 960 300">
+    <svg id="name-svg" viewBox="0 0 960 300">
     <symbol id="s-text">
         <text text-anchor="middle" x="50%" y="80%" class="cursive">Vlad Grigoriu</text>
         <!-- <text text-anchor="middle" x="52%" y="80%">AUYK. </text> -->
@@ -13,7 +13,19 @@
         <use xlink:href="#s-text" class="text-copy"></use>
     </g>
     </svg>
+
+   
 </template>
+
+<script>
+export default {
+    mounted(){
+        setTimeout(() => {
+            document.getElementById('name-svg').style.pointerEvents='all';
+        }, 6000);
+    }
+}
+</script>
 
 <style scoped>
 svg {
@@ -23,6 +35,7 @@ svg {
     height: 160px;
     /* margin: 0 auto; */
     margin-left: -30px;
+    pointer-events: none;
 }
 .text-copy {
     fill: none;
@@ -33,7 +46,7 @@ svg {
     animation: stroke-offset 3s forwards linear;
     opacity: 0;
     animation-delay: 1s;
-    transition: stroke-dasharray 5s ease;
+    transition: stroke-dasharray 3s ease;
 }
 
 .text-copy:nth-child(1){
@@ -43,8 +56,8 @@ svg {
 }
 
 svg:hover .text-copy{
-    stroke-dashoffset: 0;
-    stroke-dasharray: 1;
+    stroke-dashoffset: 200;
+    stroke-dasharray: 200;
 }
 
 @keyframes stroke-offset{

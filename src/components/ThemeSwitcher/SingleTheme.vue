@@ -38,6 +38,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: transform 300ms ease;
 }
 .single-theme{
   width: 40px;
@@ -66,6 +67,9 @@ export default {
 }
 .active{
   transform: scale(1.2);
+}
+.active > .single-theme{
+  box-shadow: var(--box-shadow) 0px 7px 29px 0px;
 }
 
 @media screen and (max-width:450px){

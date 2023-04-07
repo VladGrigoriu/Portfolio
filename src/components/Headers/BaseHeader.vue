@@ -3,7 +3,8 @@
     <header class="header">
       <LanguageSwitcher />
         <a target="_blank" href="https://it.linkedin.com/in/vladgrigoriu"><FontAwesomeIcon icon="fa-brands fa-linkedin" class="icons ml"/></a>
-        <a target="_blank" href="https://github.com/VladGrigoriu"><FontAwesomeIcon icon="fa-brands fa-github" class="icons ml mr"/></a>
+        <a target="_blank" href="https://github.com/VladGrigoriu"><FontAwesomeIcon icon="fa-brands fa-github" class="icons ml"/></a>
+        <a target="_blank" href="mailto:vlad.grigoriu4@gmail.com"><FontAwesomeIcon icon="fa-solid fa-envelope" class="icons ml mr"/></a>
     </header>
 </template>
 
