@@ -2,9 +2,11 @@
 
 <template>
 	<NoiseBackground />
-	<img src="/assets/images/bio_man.png" id="bg-img" />
-	<img src="/assets/images/medal.png" id="bg-img2" />
-	<img src="/assets/images/profession_man.png" id="bg-img3" />
+	<div id="pattern-container">
+		<img src="/assets/images/bio_man.png" id="bg-img" />
+		<img src="/assets/images/medal.png" id="bg-img2" />
+		<img src="/assets/images/profession_man.png" id="bg-img3" />
+	</div>
 
 	<div id="retro-container">
 		

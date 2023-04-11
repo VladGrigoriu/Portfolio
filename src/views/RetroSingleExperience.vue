@@ -138,4 +138,24 @@ export default {
 #job-desc{
     font-size: 40px;
 }
+@media screen and (max-width: 450px){
+    #experience-topbar {
+        width: 100%;
+        border-top: 1.5px solid hsl(230, 5%, 23%);
+        border-left: none;
+        text-align: center;
+        padding: 10px;
+    }
+    #body {
+        flex-direction: column-reverse;
+    }
+    #center-body {
+        width: 100%;
+        border-bottom: 1.5px solid hsl(230, 5%, 23%);
+        border-left: none;
+    }
+    .side-body {
+        width: 100%;
+    }
+}
 </style>

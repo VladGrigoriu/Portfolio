@@ -35,4 +35,15 @@
     height: 5000%;
 	width: 5000%;
 }
+@media screen and (max-width: 450px){
+    #noise-svg2 {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
 </style>

@@ -29,4 +29,9 @@
     right: 0;
 	z-index: 1;
 }
+@media screen and (max-width: 450px) {
+	#noise-svg[data-v-f034cdc7] {
+		height: 100%;
+	}
+}
 </style>

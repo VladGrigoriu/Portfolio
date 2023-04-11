@@ -45,8 +45,6 @@
 
         <canvas id="hacker-canvas"></canvas>
 
-        <div class="book_page"></div>
-        
 
     </main>
 </template>

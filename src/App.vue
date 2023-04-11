@@ -12,10 +12,10 @@ import { RouterView } from 'vue-router'
 import { useThemeStore } from './stores/theme'
 
 export default {
-  mounted(){
-    const themeStore = useThemeStore();
-    themeStore.setInitialTheme()
-  }
+    mounted() {
+        const themeStore = useThemeStore();
+        themeStore.setInitialTheme();
+    }
 }
 </script>
 

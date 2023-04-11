@@ -203,4 +203,42 @@ export default {
     text-decoration: underline;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 450px){
+    .experience-image{
+        width: 100%;
+    }
+    .experience-description{
+        width: 100%;
+    }
+    .single-link-left{
+        width: 40%;
+    }
+    .single-link-right{
+        width: 40%;
+    }
+    .experience-even, .experience-odd {
+        height: auto;
+        flex-direction: column-reverse;
+    }
+    .p-right{
+        text-align: end;
+    }
+    .p-left, .p-right{
+        padding-bottom: 20px;
+    }
+    .experience-actions-right, .experience-actions-left{
+        position: relative;
+        height: 40px;
+    }
+    .screenshot {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image-container {
+        height: 150px;
+        width: 100%;
+    }
+}
 </style>

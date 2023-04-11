@@ -30,4 +30,13 @@
 .right-border{
 	border-right: 1.5px solid hsl(230, 5%, 23%);
 }
+@media screen and (max-width: 450px){
+	#menu {
+		flex-direction: column;
+	}
+	.menu-item {
+		width: 100%;
+		border-right: none;
+	}
+}
 </style>
