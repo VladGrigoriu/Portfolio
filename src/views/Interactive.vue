@@ -9,7 +9,11 @@
         </div>
 
         <div id="env-container">
-          <div id="env-renderer"></div>
+          <div id="env-renderer">
+            <div id="info">
+              <h2 id="environment-title" class="animate-title">Fantasy Studio</h2>
+            </div>
+          </div>
         </div>
 
     </section>
@@ -22,7 +26,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export default {
     data() {
       return {
-        texture: null
+        textures: [
+          {
+            url: 'interactive_env.jfif',
+            name: 'Fantasy Studio'
+          },
+          {
+            url: 'studio_burton.jpg',
+            name: 'Tim Burton Style'
+          },
+          {
+            url: 'studio_steampunk.jfif',
+            name: 'Steam Punk Style'
+          },
+          {
+            url: 'studio_ghibli.jfif',
+            name: 'Studio Ghibli Style'
+          }
+        ],
+        currentEnvironment: 'interactive_env.jfif'
       };
     },
     mounted(){
@@ -36,67 +58,108 @@ export default {
         // });
 
         // Select the container for the scene
-const container = document.getElementById('env-renderer');
+        const container = document.getElementById('env-renderer');
 
-// Create the scene, camera, and renderer
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
+        // Create the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-container.appendChild(renderer.domElement);
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
 
-// Load the panoramic image and create a texture
-const loader = new THREE.TextureLoader();
-const texture = loader.load('/assets/images/interactive_env.jfif');
+        // Load the panoramic image and create a texture
+        const loader = new THREE.TextureLoader();
+        let texture = loader.load('/assets/images/' + this.currentEnvironment);
 
-// Create a spherical geometry and map the texture to it
-const geometry = new THREE.SphereGeometry(500, 60, 40);
+        // Create a spherical geometry and map the texture to it
+        const geometry = new THREE.SphereGeometry(500, 60, 40);
 
-// Flip the geometry inside out
-geometry.scale(-1, 1, 1);
+        // Flip the geometry inside out
+        geometry.scale(-1, 1, 1);
 
-const material = new THREE.MeshBasicMaterial({
-    map: texture
-});
+        let material = new THREE.MeshBasicMaterial({
+            map: texture
+        });
 
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+        let sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
 
-// Set up the camera and controls
-camera.position.set(0, 0, 0.1);
+        setInterval(() => {
+          console.log('i')
+          scene.remove(sphere);
+          texture = loader.load('/assets/images/' + this.selectRandomEnvironment());
+          material = new THREE.MeshBasicMaterial({
+            map: texture
+        });
+          sphere = new THREE.Mesh(geometry, material);
+          scene.add(sphere);
+        }, 10000);
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableZoom = false;
-controls.enablePan = false;
+        // Set up the camera and controls
+        camera.position.set(0, 0, 0.1);
 
-controls.rotateSpeed = 0.3;
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false;
+        controls.enablePan = false;
 
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
+        controls.rotateSpeed = 0.3;
 
-window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
 
-// Animation loop
-let lastTime = 0;
-const rotationSpeed = 0.00005;
+        window.addEventListener('resize', onWindowResize, false);
 
-function animate(time) {
-    const delta = time - lastTime;
-    lastTime = time;
-    requestAnimationFrame(animate);
+        // Animation loop
+        let lastTime = 0;
+        const rotationSpeed = 0.00005;
 
-    sphere.rotation.y += rotationSpeed * delta;
+        function animate(time) {
+            const delta = time - lastTime;
+            lastTime = time;
+            requestAnimationFrame(animate);
 
-    controls.update();
-    renderer.render(scene, camera);
-}
+            sphere.rotation.y += rotationSpeed * delta;
 
-animate(0);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate(0);
    
+    },
+    methods:{
+      selectRandomEnvironment(){
+        const envPosition = this.textures.map(texture => texture.url).indexOf(this.currentEnvironment);
+        // const envPosition = this.textures.indexOf(randomEnv);
+
+        if(envPosition+1 === this.textures.length){
+          this.currentEnvironment = this.textures[0].url;
+          document.getElementById('environment-title').innerText=this.textures[0].name;
+          return this.textures[0].url;
+        }else{
+          this.currentEnvironment = this.textures[envPosition+1].url;
+          document.getElementById('environment-title').innerText=this.textures[envPosition+1].name;
+          return this.textures[envPosition+1].url;
+        }
+
+        // if(randomEnv.url === this.currentEnvironment && envPosition != this.textures.length-1){
+        //   this.currentEnvironment = this.textures[envPosition+1].url;
+        //   document.getElementById('environment-title').innerText=this.textures[envPosition+1].name;
+        //   return this.textures[envPosition+1].url;
+        // }else if(randomEnv.url === this.currentEnvironment && envPosition === this.textures.length-1){
+        //   this.currentEnvironment = this.textures[1].url;
+        //   document.getElementById('environment-title').innerText=this.textures[1].name;
+        //   return this.textures[1].url;
+        // }else{
+        //   this.currentEnvironment = randomEnv.url;
+        //   document.getElementById('environment-title').innerText=randomEnv.name;
+        //   return randomEnv.url;
+        // }
+      }
     }
 }
 </script>
@@ -175,11 +238,46 @@ animate(0);
 #env-renderer{
   position: relative;
   z-index: 9999;
+  height: 80vh;
+  width: 80%;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  overflow: hidden;
 }
 #env-container{
   position: relative;
   z-index: 9999;
-  height: 90vh;
-  width: 20px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  
+}
+#info {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	z-index: 100;
+	display:block;
+  color: white;
+  font-weight: 800;
+  background-color: #00000001;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+#environment-title{
+  opacity: 0;
+}
+.animate-title{
+  animation: show 10s ease infinite;
 }
 </style>
