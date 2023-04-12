@@ -381,7 +381,7 @@
 		grid-row: 3 / 3;
 	}
 	.skill-container {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr;
 		height: 500px;
 	}
@@ -390,5 +390,33 @@
 		padding-top: 20px;
 		padding-bottom: 20px;
 		grid-area: 1 / 1 / span 2 / span 3;
+		border-left: none;
+	}
+	#main-skill2{
+		border-right: none;
+	}
+	.js, .laravel{
+		border-right: 1.5px solid hsl(230, 5%, 23%);
+		border-top: none;
+	}
+	.css, .php{
+		border-right: 1.5px solid hsl(230, 5%, 23%);
+	}
+	.html, .mysql{
+		border-bottom: 1.5px solid hsl(230, 5%, 23%);
+	}
+	.mysql{
+		border-right: none;
+	}
+	.react{
+		border-right: 1.5px solid hsl(230, 5%, 23%);
+		border-left: none;
+	}
+	.vue{
+		border-right: 1.5px solid hsl(230, 5%, 23%);
+		border-left: none;
+	}
+	.angular{
+		border-left: none;
 	}
 }

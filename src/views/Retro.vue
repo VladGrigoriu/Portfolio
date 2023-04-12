@@ -75,42 +75,42 @@
 						<img src="/assets/images/medal.png" class="medal"/>
 						<h2 class="skill-name">FRONT-END SKILLS</h2>
 					</div>
-					<div class="skill-grid-item skill-hover top-border bottom-border">
+					<div class="skill-grid-item skill-hover top-border bottom-border js">
 						<SingleSkill title="Javascript" icon="js">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover bottom-border">
+					<div class="skill-grid-item skill-hover bottom-border css">
 						<SingleSkill title="CSS" icon="css3">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover">
+					<div class="skill-grid-item skill-hover html">
 						<SingleSkill title="HTML" icon="html5">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover left-border">
+					<div class="skill-grid-item skill-hover left-border react">
 						<SingleSkill title="React" icon="react">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover left-border">
+					<div class="skill-grid-item skill-hover left-border vue">
 						<SingleSkill title="Vue" icon="vuejs">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover left-border">
+					<div class="skill-grid-item skill-hover left-border angular">
 						<SingleSkill title="Angular" icon="angular">
 							<template #stars>
 								<Stars :number="4" />
@@ -126,42 +126,42 @@
 						<h2 class="skill-name">BACK-END SKILLS</h2>
 						<img src="/assets/images/medal.png" class="medal"/>
 					</div>
-					<div class="skill-grid-item skill-hover top-border bottom-border">
+					<div class="skill-grid-item skill-hover top-border bottom-border laravel">
 						<SingleSkill title="Laravel" icon="laravel">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover bottom-border">
+					<div class="skill-grid-item skill-hover bottom-border php">
 						<SingleSkill title="PHP" icon="php">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover right-border">
+					<div class="skill-grid-item skill-hover right-border mysql">
 						<SingleSkill title="MySQL" icon="mysql.svg" :isIcon="false">
 							<template #stars>
 								<Stars :number="5" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover right-border">
+					<div class="skill-grid-item skill-hover right-border mongo">
 						<SingleSkill title="MongoDB" icon="mongodb.svg" :isIcon="false">
 							<template #stars>
 								<Stars :number="4" />
 							</template>
 						</SingleSkill>
 					</div>
-					<div class="skill-grid-item skill-hover right-border">
+					<div class="skill-grid-item skill-hover right-border csharp">
 						<SingleSkill title="C#" icon="c_sharp.svg" :isIcon="false">
 							<template #stars>
 								<Stars :number="4" />
 							</template>
 						</SingleSkill>
 					</div>  
-					<div class="skill-grid-item skill-hover">
+					<div class="skill-grid-item skill-hover node">
 						<SingleSkill title="NodeJS" icon="node-js">
 							<template #stars>
 								<Stars :number="5" />

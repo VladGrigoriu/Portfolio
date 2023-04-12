@@ -17,6 +17,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@lottiefiles/lottie-player": "^1.7.1",
     "pinia": "^2.0.33",
+    "three": "^0.134.0",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-kinesis": "^2.0.5",

@@ -1,3 +1,9 @@
 <template>
-    <img src="/assets/images/folder.gif" />
+    <div>
+      
+    </div>
 </template>
+
+<style scoped>
+
+</style>

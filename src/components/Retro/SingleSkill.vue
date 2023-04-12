@@ -44,4 +44,15 @@ export default{
 .single-skill-container:hover .skill-image{
     filter: brightness(0) invert(1);
 }
+@media screen and (max-width: 450px){
+    .skill-icons{
+        font-size: 30px;
+    }
+    .skill-title{
+        font-size: 16px;
+    }
+    .skill-image{
+        width: 30px;
+    }
+}
 </style>
