@@ -12,25 +12,25 @@
                     <div class="experience-side-topbar">
                         <img :src="experience.main_image" :class="experience.is_screenshot ? 'illustration experience-screenshot' : 'illustration experience-image'"/>
                     </div>
-                    <div id="experience-topbar" class="name">
+                    <div id="experience-topbar" class="name retro-title">
                         {{ experience.name }}
                     </div>
                 </div>
 
-                <Separator />
+                <Separator :colored="true" />
 
                 <div id="body">
 
                     <div class="side-body">
-                        <span><strong>Skills: </strong>{{ experience.skills?.map(skill => skill).join(', ') }}</span>
+                        <span><strong class="retro-subtitle">Skills: </strong>{{ experience.skills?.map(skill => skill).join(', ') }}</span>
                     </div>
 
                     <div id="center-body">
-                        <h2 id="job-desc">DESCRIPTION</h2>
+                        <h2 id="job-desc" class="retro-title">DESCRIPTION</h2>
 
                         <div v-for="role in experience.roles" :key="role.name">
                             <br>
-                            <h2>{{ role.name }}</h2><br>
+                            <h2 class="retro-subtitle">{{ role.name }}</h2><br>
                             <p>{{ role.description }}</p>
 
                         </div>
@@ -39,11 +39,11 @@
 
                 </div>
 
-                <Separator />
+                <Separator :colored="true" />
 
                 <SecondaryMenu :nextExperienceName="nextExperienceName" />
 
-                <Separator />
+                <Separator :colored="true" />
 
             </div>
 
@@ -138,6 +138,7 @@ export default {
 #job-desc{
     font-size: 40px;
 }
+
 @media screen and (max-width: 450px){
     #experience-topbar {
         width: 100%;

@@ -2,7 +2,7 @@
     <div>
         <div v-for="(experience, index) in experienceStore.experiences" :key="experience.name" :class="(index+1) % 2 === 0 ? 'experience-even' : 'experience-odd'" :id="index === 0 ? 'first-element' : index+1 === experienceStore.experiences.length ? 'last-element' : ''">
             <div :class="(index+1) % 2 === 0 ? 'experience-description desc-even' : 'experience-description desc-odd'">
-                <h2 :class="(index+1) % 2 === 0 ? 'p-left p-top' : 'p-right p-top'">{{ experience.name }}</h2>
+                <h2 :class="(index+1) % 2 === 0 ? 'p-left p-top retro-subtitle' : 'p-right p-top retro-subtitle'">{{ experience.name }}</h2>
                 <p :class="(index+1) % 2 === 0 ? 'p-left text-left' : 'p-right text-right'">
                     {{ experience.description }} <br>
                     <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><strong>Discover More  <FontAwesomeIcon icon="fa-solid fa-chevron-right" /> </strong></RouterLink>
@@ -121,7 +121,7 @@ export default {
     height: 20%;
     width: 100%;
     border-top: 1.5px solid hsl(230, 5%, 23%);
-    background-color: var(--text-color);
+    background-color: #dd9e3f;
 	color: var(--primary-color);
     display: flex;
     align-items: center;

@@ -1,5 +1,5 @@
 <template>
-    <div id="section-title">
+    <div id="section-title" class="retro-title">
         {{ title }}
     </div>
 </template>

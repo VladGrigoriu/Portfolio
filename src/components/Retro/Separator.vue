@@ -1,5 +1,5 @@
 <template>
-    <div id="separator">
+    <div :class="colored ? 'separator retro-colored-background' : 'separator'">
         <div :class="direction === 'left' ? 'line-left' : 'line-right'"></div>
         <div :class="direction === 'left' ? 'line-left' : 'line-right'"></div>
         <div :class="direction === 'left' ? 'line-left' : 'line-right'"></div>
@@ -39,14 +39,15 @@
 
 export default {
     props:{
-        direction: String
+        direction: String,
+        colored: Boolean
     }
 }
 
 </script>
 
 <style scoped>
-#separator{
+.separator{
    width: 100%;
    height: 15px;
    border-top: 1.5px solid hsl(230, 5%, 23%);
