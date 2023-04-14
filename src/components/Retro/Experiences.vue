@@ -2,7 +2,7 @@
     <div>
         <div v-for="(experience, index) in experienceStore.experiences" :key="experience.name" :class="(index+1) % 2 === 0 ? 'experience-even' : 'experience-odd'" :id="index === 0 ? 'first-element' : index+1 === experienceStore.experiences.length ? 'last-element' : ''">
             <div :class="(index+1) % 2 === 0 ? 'experience-description desc-even' : 'experience-description desc-odd'">
-                <h2 :class="(index+1) % 2 === 0 ? 'p-left p-top retro-subtitle' : 'p-right p-top retro-subtitle'">{{ experience.name }}</h2>
+                <RouterLink :to="`/retro/experience/${experience.name}`"><h2 :class="(index+1) % 2 === 0 ? 'p-left p-top retro-subtitle' : 'p-right p-top retro-subtitle'">{{ experience.name }}</h2></RouterLink>
                 <p :class="(index+1) % 2 === 0 ? 'p-left text-left' : 'p-right text-right'">
                     {{ experience.description }} <br>
                     <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><strong>Discover More  <FontAwesomeIcon icon="fa-solid fa-chevron-right" /> </strong></RouterLink>
@@ -24,6 +24,7 @@
                     {{ experience.date_from }} -> {{ experience.date_to }}
                 </div>
             </div>
+            <Separator direction="left" :colored="true" />
         </div>
     </div>
 </template>
@@ -52,19 +53,32 @@ export default {
 .experience-odd{
     height: 180px;
     border-bottom: 1.5px solid hsl(230, 5%, 23%);
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
+}
+.experience-odd:nth-child(1){
+    flex: 20%;
+}
+.experience-odd:nth-child(2){
+    flex: 80%;
 }
 .experience-even{
     height: 180px;
     border-bottom: 1.5px solid hsl(230, 5%, 23%);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     position: relative;
+}
+.experience-even:nth-child(1){
+    flex: 20%;
+}
+.experience-even:nth-child(2){
+    flex: 80%;
 }
 .experience-image{
     width: 20%;
@@ -109,19 +123,19 @@ export default {
 .image{
     width: 50%;
     object-fit: cover;
-    filter: brightness(0);
+    /* filter: brightness(0); */
 }
 .screenshot{
     width: 100%;
     height: 100%;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+    /* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
 }
 .experience-date{
     height: 20%;
     width: 100%;
     border-top: 1.5px solid hsl(230, 5%, 23%);
-    background-color: #dd9e3f;
+    background-color: black;
 	color: var(--primary-color);
     display: flex;
     align-items: center;

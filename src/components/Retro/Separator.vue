@@ -58,6 +58,7 @@ export default {
    display: flex;
    align-items: center;
    justify-content: flex-start;
+   z-index: 99;
 }
 .line-left{
    width: 100%;

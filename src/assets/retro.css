@@ -22,6 +22,8 @@
     top: 5%;
 	left: 2%;
 	transform: rotateZ(-45deg);
+	opacity: 0;
+	animation: show 3s ease forwards;
 }
 #bg-img2{
 	position: absolute;
@@ -30,6 +32,8 @@
     top: 25%;
 	right: 1%;
 	transform: rotateZ(45deg);
+	opacity: 0;
+	animation: show 3s ease forwards;
 }
 #bg-img3{
 	position: absolute;
@@ -37,6 +41,8 @@
     z-index: 80;
     top: 50%;
 	transform: rotateZ(-45deg);
+	opacity: 0;
+	animation: show 3s ease forwards;
 }
 #bg-img4{
 	position: absolute;

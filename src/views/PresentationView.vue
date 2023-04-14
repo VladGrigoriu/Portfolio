@@ -27,7 +27,7 @@
             <div id="style-switcher">
                 <SingleStyle name="Business" img="business.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Interactive" img="interactive.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
-                <SingleStyle name="Retro" img="old_fashion.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Retro" img="retro.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
             </div>
             <button class="btn continue" @click="startExperience">Continue</button>
