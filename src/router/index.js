@@ -19,9 +19,9 @@ const router = createRouter({
       component: lazyLoad('PresentationView')
     },
     {
-      path: '/business',
-      name: 'business',
-      component: lazyLoad('Business')
+      path: '/liquid',
+      name: 'liquid',
+      component: lazyLoad('Liquid')
     },
     {
       path: '/interactive',
@@ -42,6 +42,11 @@ const router = createRouter({
       path: '/retro/experience/:experienceName',
       name: 'retroExperience',
       component: lazyLoad('RetroSingleExperience')
+    },
+    {
+      path: '/liquid/experience/:experienceName',
+      name: 'liquidExperience',
+      component: lazyLoad('LiquidExperience')
     }
   ]
 })

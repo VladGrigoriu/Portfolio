@@ -40,7 +40,7 @@
 				<div id="main-journal-body">
 					<div id="box-one" class="right-border">
 						<h2 class="box-title retro-title">BIOGRAPHY</h2>
-						<p class="box-text incremental-padding">I'm a {{ this.$myAge }} years old software developer based in Rome, Italy. I have worked with Front-end and Back-end Systems and Technologies to help build great software on the web. During my work experience I have supported various companies in 𝒅𝒊𝒈𝒊𝒕𝒂𝒍𝒊𝒛𝒊𝒏𝒈 their business. I have experience in development, design, testing, bug fixing, maintenance and optimizations of web or mobile applications using the most modern development 𝒇𝒓𝒂𝒎𝒆𝒘𝒐𝒓𝒌𝒔.</p>
+						<p class="box-text incremental-padding">{{ meStore.bio }}</p>
 						<img src="/assets/images/character4.png" class="illustration bio-man"/>
 					</div>
 					<div id="box-two">
@@ -237,7 +237,8 @@ import SingleSkill from '../components/Retro/SingleSkill.vue';
 import Subtitle from '../components/Retro/Subtitle.vue';
 import Experiences from '../components/Retro/Experiences.vue';
 import Stars from '../components/Retro/Stars.vue';
-import { useContactStore } from '../stores/contact'
+import { useContactStore } from '../stores/contact';
+import { useMeStore } from '../stores/me';
 import NoiseBackground from '../components/Retro/NoiseBackground.vue';
 import JournalBackground from '../components/Retro/JournalBackground.vue';
 import { ref } from 'vue';
@@ -248,8 +249,8 @@ export default {
 	components: { Separator, FontAwesomeIcon, SingleSkill, Subtitle, Experiences, Stars, Menu, NoiseBackground, JournalBackground },
 	setup(){
         const contactStore = useContactStore();
-
-        return { contactStore };
+		const meStore = useMeStore();
+        return { contactStore, meStore };
     },
 	methods:{
 		scrollToFESkills(){

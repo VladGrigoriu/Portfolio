@@ -25,7 +25,7 @@
             </ThemeSwitcher>
             <h3>Choose style</h3>
             <div id="style-switcher">
-                <SingleStyle name="Business" img="business.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Liquid" img="liquid.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Interactive" img="interactive.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Retro" img="retro.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
@@ -61,7 +61,7 @@ export default {
     components: { Name, BaseHeader, ThemeSwitcher, SingleTheme, SingleStyle },
     data(){
         return {
-            selectedStyle: 'Business'
+            selectedStyle: 'Liquid'
         }
     },
     mounted(){
@@ -130,10 +130,10 @@ export default {
         },
         startExperience(){
             switch (this.selectedStyle){
-                case 'Business':
+                case 'Liquid':
                     document.getElementById('sliding-bg').classList.add('sliding-animation');
                     setTimeout(() => {
-                        this.$router.push('/business');
+                        this.$router.push('/liquid');
                     }, 1000);
                     break;
                 case 'Interactive':
