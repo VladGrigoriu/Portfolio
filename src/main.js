@@ -12,23 +12,10 @@ import './assets/main.css'
 
 library.add(faGithub, faLinkedin, faCaretDown, faEnvelope, faArrowUpRightDots, faHtml5, faCss3, faJs, faVuejs, faReact, faAngular, faPhp, faLaravel, faNodeJs, faArrowUpRightFromSquare, faStar, faRegularStar, faChevronRight );
 
-function calculateAge(birthday) {
-    var ageDifMs = Date.now() - birthday;
-    var ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
+const pinia = createPinia();
 
 const app = createApp(App);
 
-app.config.globalProperties.$myAge = calculateAge(new Date('2000-05-09'));
-
-const pinia = createPinia();
-
-pinia.use(({ store }) => {
-    store.myAge = 'ciao';
-});
-// pinia.use(() => ({ hello: 'world' }))
-
 app.use(router).use(pinia).use(i18n).component('FontAwesomeIcon', FontAwesomeIcon);
 
-app.mount('#app');
+app.mount('#app')

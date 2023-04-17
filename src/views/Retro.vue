@@ -241,9 +241,6 @@ import { useContactStore } from '../stores/contact';
 import { useMeStore } from '../stores/me';
 import NoiseBackground from '../components/Retro/NoiseBackground.vue';
 import JournalBackground from '../components/Retro/JournalBackground.vue';
-import { ref } from 'vue';
-
-
 
 export default {
 	components: { Separator, FontAwesomeIcon, SingleSkill, Subtitle, Experiences, Stars, Menu, NoiseBackground, JournalBackground },
