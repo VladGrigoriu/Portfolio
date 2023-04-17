@@ -31,7 +31,7 @@
               </div>
 
 
-              <div>
+              <div class="section-image">
                 <img src="/assets/images/pc_liquid1.png" id="about-img" class="rotate-right" />
               </div>
 
@@ -46,12 +46,12 @@
                 </div>
 
                 <div id="skills-grid">
-                  <!-- <SingleSkill v-for="skill in meStore.skills" :key="skill.name" :title="skill.name" :icon="skill.icon" :isIcon="skill.isIcon" /> -->
+                  <SingleSkill v-for="skill in meStore.skills" :key="skill.name" :title="skill.name" :icon="skill.icon" :isIcon="skill.isIcon" />
                 </div>
 
               </div>
 
-              <div>
+              <div class="section-image">
                 <img src="/assets/images/liquid_medal.png" id="about-img" class="rotate-left" />
               </div>
 
@@ -234,6 +234,9 @@ export default {
   width: 60%;
   color: var(--text-color);
 }
+.section-image{
+  width: 40%;
+}
 #hero-image{
   object-fit: cover;
   width: 100%;
@@ -352,11 +355,9 @@ export default {
 }
 #skills-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
   column-gap: 20px;
-}
-.grid-item{
-  background-color: red;
+  width: 90%;
 }
 </style>
