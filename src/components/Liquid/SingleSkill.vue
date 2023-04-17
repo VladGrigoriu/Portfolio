@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="single-skill-container">
-            <h4 class="skill-title">{{ title }}</h4>
-            <FontAwesomeIcon :icon="`fa-brands fa-${icon}`" class="skill-icons" v-if="isIcon"/>
+        <div class="liquid-single-skill-container">
+            <h4 class="liquid-skill-title">{{ title }}</h4>
+            <FontAwesomeIcon :icon="`fa-brands fa-${icon}`" class="liquid-skill-icons" v-if="isIcon"/>
             <!-- <img v-else :src="`/assets/images/${icon}`" class="skill-image"/> -->
             <!-- <div class="svg-item" :style="{'mask-image':`url(/assets/images/${icon})`}"></div> -->
             <div class="inline-svg-container" v-html="currentIcon" v-else></div>
@@ -37,31 +37,30 @@ export default {
 </script>
 
 <style>
-.skill-image{
-    fill: red !important;
-}
-.svg-item{
-    background: green;
-    height: 100%;
-    width: 100%;
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-}
 #csharp, .mysql, .mongodb{
     fill: var(--primary-color);
 }
-svg{
+.inline-svg-container svg, .liquid-skill-icons{
     font-size: 30px;
+    margin-top: 10px;
 }
-.single-skill-container{
+.liquid-single-skill-container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: var(--text-color);
     color: var(--primary-color);
+    border: 0.3px solid var(--text-color);
     padding: 20px;
     border-radius: 10px;
 }
+.liquid-single-skill-container:hover{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+.liquid-single-skill-container:hover #csharp,.liquid-single-skill-container:hover .mysql,.liquid-single-skill-container:hover .mongodb{
+    fill: var(--text-color);
+}
+
 </style>

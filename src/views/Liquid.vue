@@ -1,10 +1,10 @@
 
 <template>
   <header id="business-header">
-    <div @click="scrollToAbout">About</div>
-    <div @click="scrollToSkills">Skills</div>
-    <div @click="scrollToExperiences">Experiences</div>
-    <div @click="scrollToContacts">Contacts</div>
+    <div class="liquid-menu-item" @click="scrollToAbout">About</div>
+    <div class="liquid-menu-item" @click="scrollToSkills">Skills</div>
+    <div class="liquid-menu-item" @click="scrollToExperiences">Experiences</div>
+    <div class="liquid-menu-item" @click="scrollToContacts">Contacts</div>
   </header>
     <section id="business-container">
         <div id="sliding-bg-business">
@@ -17,7 +17,12 @@
               
               <img src="/assets/images/liquid_bg.jpg" id="hero-image"/>
               
+              <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+              </svg>
+
             </div>
+            <!-- <div class='wave'></div> -->
             <div ref="about" class="section" id="section2" data-rate=".2" data-direction="vertical">
               
               <div class="section-description">
@@ -34,6 +39,10 @@
               <div class="section-image">
                 <img src="/assets/images/pc_liquid1.png" id="about-img" class="rotate-right" />
               </div>
+
+              <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+              </svg>
 
             </div>
             <div ref="skills" class="section" data-rate=".1" data-direction="vertical">
@@ -55,6 +64,10 @@
                 <img src="/assets/images/liquid_medal.png" id="about-img" class="rotate-left" />
               </div>
 
+              <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+              </svg>
+
             </div>
             <div ref="experiences" class="section" data-rate=".1" data-direction="vertical">
               
@@ -64,18 +77,34 @@
                 <h2>Experiences</h2>
               </div>
 
-              <div>x</div>
+              <div class="section-image">
+                <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right" />
+              </div>
+
+              <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+              </svg>
 
             </div>
             <div ref="contacts" class="section" data-rate=".1" data-direction="vertical">
               
-              <div class="liquid right-alignment">
-                <h2>Contacts</h2>
-                <h2>Contacts</h2>
-                <h2>Contacts</h2>
+              <div class="section-description2">
+                <div class="liquid right-alignment">
+                  <h2>Contacts</h2>
+                  <h2>Contacts</h2>
+                  <h2>Contacts</h2>
+                </div>
+
+                <div>
+                  <a v-for="contact in contactStore.contacts" target="_blank" :href="contact.url" :key="contact.name" class="contact">
+                    <span class="contact-name">{{ contact.name }}</span> <FontAwesomeIcon :icon="contact.icon" /> 
+                  </a>
+                </div>
               </div>
 
-              <div>x</div>
+              <div class="section-image">
+                <img src="/assets/images/liquid_contact.png" id="about-img" class="rotate-left" />
+              </div>
 
             </div>
         </div>
@@ -86,6 +115,7 @@
 
 <script>
 import { useMeStore } from '../stores/me';
+import { useContactStore } from '../stores/contact';
 import SingleSkill from '../components/Liquid/SingleSkill.vue';
 
 export default {
@@ -98,7 +128,8 @@ export default {
   },
   setup(){
 		const meStore = useMeStore();
-    return { meStore };
+    const contactStore = useContactStore();
+    return { meStore, contactStore };
   },
   methods:{
     scrollToAbout(){
@@ -151,6 +182,9 @@ export default {
     background-color: var(--secondary-color);
     height: 100vh;
 }
+.liquid-menu-item{
+  cursor: pointer;
+}
 #sliding-bg-business{
     position: fixed;
     top: 0;
@@ -162,13 +196,14 @@ export default {
     /* z-index: 99999; */
     animation: slide 1s 1 forwards;
 	overflow-y: scroll;
+  overflow-x: hidden;
 }
 #section-1,#section-2{
 	height: 100vh;
 }
 #section-1{
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -293,7 +328,7 @@ export default {
 }
 .liquid h2 {
   position: absolute;
-  font-size: 8vw;
+  font-size: 6vw;
   font-family: 'Rubik Moonrocks', cursive;
   font-weight: 400;
 }
@@ -359,5 +394,38 @@ export default {
   row-gap: 20px;
   column-gap: 20px;
   width: 90%;
+}
+.wave{
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  transform: scale(1,0.5);
+}
+.wave>path{
+  fill: var(--secondary-color);
+}
+
+.wave2{
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  transform: scale(1,0.5);
+}
+.wave2>path{
+  fill: var(--primary-color);
+}
+.contact{
+	text-align: right;
+	margin-top: 20px;
+	font-size: 25px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	text-decoration: none;
+	color: inherit;
+}
+.contact-name{
+	margin-right: 20px;
 }
 </style>
