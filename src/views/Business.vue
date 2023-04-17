@@ -2,10 +2,14 @@
 <template>
     <section id="business-container">
         <div id="sliding-bg-business">
-          <div style="position: relative;" ref="scroll">
+          <div id="sections-container" style="position: relative;" ref="scroll">
 
-            <div class="section" data-rate=".4" data-direction="vertical">
-              <h2>Section 1</h2>
+            <div class="section" id="section-1" data-rate=".4" data-direction="vertical">
+              <h2>Bio</h2>
+              
+              <div id="hero-image-container">
+                <img src="/assets/images/business_hero.png" id="hero-image"/>
+              </div>
               
             </div>
             <div class="section" data-rate=".2" data-direction="vertical">
@@ -30,16 +34,20 @@ export default{
 	components:{ Skills },
   data(){
     return {
-
+      heroImage: null,
+      initialClip: 100
     }
   },
   methods:{
     handleScroll(){
-     
+      console.log('sc')
+      document.getElementById('hero-image').style.clipPath = 'circle(' + ( Math.max(0, this.initialClip - (document.getElementById('sliding-bg-business').scrollTop*0.5))) + '%)';
+      console.log(document.getElementById('hero-image').style.clipPath)
     }
   },
   mounted(){
-   
+    this.heroImage = document.getElementById('hero-image');
+    document.getElementById('sliding-bg-business').addEventListener('scroll', this.handleScroll)
   },
 }
 </script>
@@ -67,7 +75,11 @@ export default{
 #section-1{
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+  width: 100%;
+  height: 90vh;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 @keyframes animate-left{
   0%{
@@ -86,6 +98,9 @@ export default{
     left: 0;
   }
 }
+#sections-container:nth-of-type(even){
+  background-color: var(--secondary-color);
+}
 .section{
   height: 100vh;
   display: flex;
@@ -93,6 +108,21 @@ export default{
   justify-content: center;
   position: relative;
 }
+#hero-image-container{
+  height: 70%;
+  width: 50%;
+  position: relative;
+}
+#hero-image{
+  object-fit: cover;
+  width: 100%;
+  /* clip-path: circle(0); */
+  /* animation: reveal 3s ease forwards; */
+}
 
-
+@keyframes reveal {
+  to{
+    clip-path: circle(100%);
+  }
+}
 </style>

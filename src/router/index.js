@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const lazyLoad = (view) => { return () => import(`../views/${view}.vue`) }
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   scrollBehavior() {
     return { top: 0 }
   },

@@ -436,4 +436,15 @@
 	.angular{
 		border-left: none;
 	}
+	#main-skill, #main-skill2{
+		flex-direction: column;
+	}
+	.skill-name{
+		text-align: center;
+	}
+	.medal{
+		width: 30%;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }

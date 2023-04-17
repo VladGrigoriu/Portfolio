@@ -45,7 +45,7 @@ svg {
     stroke-dashoffset: 600;
     animation: stroke-offset 3s forwards linear;
     opacity: 0;
-    animation-delay: 1s;
+    animation-delay: .3s;
     transition: stroke-dasharray 3s ease;
 }
 
