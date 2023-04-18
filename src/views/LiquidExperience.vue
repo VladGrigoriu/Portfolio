@@ -24,7 +24,8 @@
 
                 <div id="exp-details">
                     <span><strong>Skills: </strong>{{ experience.skills?.map(skill => skill).join(', ') }}</span>
-                    <br>
+                    <br><br>
+                    <strong>Links: </strong>
                     <div id="exp-links">
                       <div v-for="link in experience.links" :key="link.name" class="liquid-single-link">
                           <a target="_blank" :href="link.url" class="action-link" >
@@ -237,5 +238,43 @@ export default {
 #next-link:hover, #home-link:hover{
   background-color: #ccd7e8;
   color: black;
+}
+
+@media screen and (max-width:450px){
+  #exp-container{
+    width: 95%;
+  }
+  #exp-body{
+    flex-direction: column;
+  }
+  #exp-details, #exp-desc{
+    width: 100%;
+  }
+  #exp-desc-container{
+    margin-top: 70px;
+  }
+  #home-link{
+    top: 2%;
+    left: 5%;
+    width: 43%;
+  }
+  #next-link{
+    top: 2%;
+    right: 5%;
+    width: 43%;
+  }
+  #exp-desc-container>.liquid>h2{
+    font-size: 8vw;
+  }
+  .liquid{
+    top: 0;
+    left: 0;
+  }
+  #exp-container{
+    padding: 10px;
+  }
+  #exp-links{
+    grid-template-columns: 45% 45%;
+  }
 }
 </style>

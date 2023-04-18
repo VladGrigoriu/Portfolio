@@ -68,7 +68,7 @@
               </div>
 
               <div class="section-image">
-                <img src="/assets/images/liquid_medal.png" id="about-img" class="rotate-left" />
+                <img src="/assets/images/liquid_medal.png" id="about-img" class="rotate-left mobile-medal" />
               </div>
 
               <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -591,5 +591,86 @@ export default {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
+}
+
+@media screen and (max-width:450px){
+  #glass-presentation{
+    width: 80%;
+  }
+  .introduction h2{
+    font-size: 10vw;
+  }
+  .section{
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+  }
+  .section-description, .section-description2{
+    align-items: center;
+    width: 80%;
+  }
+  .left-alignment, .right-alignment{
+    justify-content: center;
+  }
+  .liquid h2{
+    font-size: 10vw;
+  }
+  .section-description > p{
+    text-align: center;
+  }
+  .section-image {
+      width: 70%;
+  }
+  .wave, .wave2 {
+      bottom: -3%;
+  }
+  #experiences-wave{
+    bottom: -2%;
+  }
+  #skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+    width: 90%;
+  }
+  #liquid-skills-section{
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .mobile-medal{
+    margin-top: 20px;
+  }
+  #experiences-intro{
+    flex-direction: column;
+  }
+  #liquid-experiences{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  #experiences-intro>.section-image{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .liquid-experience-odd, .liquid-experience-even{
+    flex-direction: column;
+    padding: 20px;
+  }
+  .liquid-experience-desc-odd, .liquid-experience-desc-even{
+    align-items: center;
+    width: 80%;
+  }
+  .liquid-experience-desc-odd p, .liquid-experience-desc-even p, .liquid-experience-desc-odd h2, .liquid-experience-desc-even h2{
+    text-align: center;
+  }
+  .liquid-experience-container{
+    width: 90%;
+  }
+  .liquid-experience-image{
+    margin-top: 20px;
+  }
+  #liquid-skills-section > .section-description2{
+    width: 90%;
+  }
 }
 </style>
