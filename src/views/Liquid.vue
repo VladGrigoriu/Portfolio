@@ -8,11 +8,18 @@
   </header>
     <section id="business-container">
         <div id="sliding-bg-business">
-          <div id="sections-container" style="position: relative;" ref="scroll">
+          <div id="sections-container" >
 
             <div class="section" id="section-1" data-rate=".4" data-direction="vertical">
               <div id="glass-presentation">
-
+                <div>
+                  <div class="liquid introduction">
+                    <h2>Welcome</h2>
+                    <h2>Welcome</h2>
+                    <h2>Welcome</h2>
+                  </div>
+                </div>
+                <button class="liquid-button" @click="scrollToAbout">Next</button>
               </div>
               
               <img src="/assets/images/liquid_bg.jpg" id="hero-image"/>
@@ -23,9 +30,9 @@
 
             </div>
             <!-- <div class='wave'></div> -->
-            <div ref="about" class="section" id="section2" data-rate=".2" data-direction="vertical">
+            <div ref="about" class="section" id="section2">
               
-              <div class="section-description">
+              <div class="section-description" id="section2-desc">
                 <div class="liquid left-alignment">
                   <h2>About</h2>
                   <h2>About</h2>
@@ -45,7 +52,7 @@
               </svg>
 
             </div>
-            <div ref="skills" class="section" data-rate=".1" data-direction="vertical">
+            <div ref="skills" class="section" id="liquid-skills-section" data-rate=".1" data-direction="vertical">
               
               <div class="section-description2">
                 <div class="liquid right-alignment">
@@ -204,7 +211,25 @@ export default {
 }
 #business-container{
     background-color: var(--secondary-color);
-    height: 100vh;
+    min-height: 100vh;
+}
+.liquid-button{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: transparent;
+  color: #ccd7e8;
+  border: 0.3px solid #ccd7e8;
+  padding: 3px;
+  border-radius: 5px;
+  margin-top: 20px;
+  min-width: 20%;
+  font-size: 18px;
+  cursor: pointer;
+}
+.liquid-button:hover{
+  background-color: #ccd7e8;
+  color: black;
 }
 .liquid-menu-item{
   cursor: pointer;
@@ -219,15 +244,15 @@ export default {
     background-color: var(--primary-color);
     /* z-index: 99999; */
     animation: slide 1s 1 forwards;
-	overflow-y: scroll;
-  overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 #section-1,#section-2{
 	height: 100vh;
 }
 #section-1{
   width: 100%;
-  height: 110vh;
+  height: 115vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,6 +260,14 @@ export default {
 #section2{
   width: 100%;
   height: 100vh;
+  position: relative;
+}
+#section2-desc{
+  opacity: 0;
+  animation: show 1s ease forwards;
+}
+#liquid-skills-section{
+  padding-bottom: 40px;
 }
 @keyframes animate-left{
   0%{
@@ -356,6 +389,12 @@ export default {
   font-family: 'Rubik Moonrocks', cursive;
   font-weight: 400;
 }
+.introduction{
+  justify-content: center;
+}
+.introduction h2{
+  font-size: 4vw;
+}
 .liquid h2:nth-child(1) {
   color: var(--text-color);
   text-shadow: -2px 2px 0px var(--name-color), -4px 4px 0px var(--name-color),
@@ -421,7 +460,7 @@ export default {
 }
 .wave{
   position: absolute;
-  bottom: -15%;
+  bottom: -12%;
   left: 0;
   transform: scale(1,0.5);
 }
@@ -431,7 +470,7 @@ export default {
 
 .wave2{
   position: absolute;
-  bottom: -15%;
+  bottom: -12%;
   left: 0;
   transform: scale(1,0.5);
 }

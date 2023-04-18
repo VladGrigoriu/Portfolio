@@ -3,7 +3,8 @@
         <img src="/assets/images/liquid_experience.jpg" id="exp-bg" />
 
         <div id="exp-container">
-
+            <RouterLink :to="`/liquid/experience/${nextExperienceName}`" id="next-link"><div>Next Experience</div></RouterLink>
+            <RouterLink to="/liquid" id="home-link"><div>Home</div></RouterLink>
             <div id="exp-desc-container">
                 <div class="liquid right-alignment">
                   <h2>{{ experience.name }}</h2>
@@ -23,7 +24,16 @@
 
                 <div id="exp-details">
                     <span><strong>Skills: </strong>{{ experience.skills?.map(skill => skill).join(', ') }}</span>
-                </div>
+                    <br>
+                    <div id="exp-links">
+                      <div v-for="link in experience.links" :key="link.name" class="liquid-single-link">
+                          <a target="_blank" :href="link.url" class="action-link" >
+                              <FontAwesomeIcon :icon="link.icon" />
+                              <p>{{ link.name }}</p>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
 
             </div>
             
@@ -67,6 +77,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--primary-color);
 }
 #exp-bg{
     position: absolute;
@@ -77,6 +88,13 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    clip-path: circle(0);
+    animation: reveal 3s ease forwards;
+}
+@keyframes reveal {
+  to{
+    clip-path: circle(100%);
+  }
 }
 #exp-container{
     width: 80%;
@@ -90,6 +108,12 @@ export default {
     border: 0.3px solid #ccd7e8;
     margin-top: 40px;
     margin-bottom: 40px;
+    position: relative;
+    opacity: 0;
+    animation: show 1s ease forwards;
+    -moz-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
 }
 .liquid {
   position: relative;
@@ -100,7 +124,7 @@ export default {
 }
 .liquid h2 {
   position: absolute;
-  font-size: 6vw;
+  font-size: 4vw;
   font-family: 'Rubik Moonrocks', cursive;
   font-weight: 400;
 }
@@ -160,5 +184,58 @@ export default {
 }
 #exp-details{
     width: 30%;
+}
+#exp-links{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.liquid-single-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 0.3px solid #ccd7e8;
+  padding: 3px;
+  border-radius: 5px;
+}
+.liquid-single-link:hover{
+  background-color: #ccd7e8;
+  color: black;
+}
+.action-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+#next-link{
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  border: 0.3px solid #ccd7e8;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 20px;
+}
+#home-link{
+  position: absolute;
+  right: 2%;
+  top: 10%;
+  border: 0.3px solid #ccd7e8;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 20px;
+}
+#next-link:hover, #home-link:hover{
+  background-color: #ccd7e8;
+  color: black;
 }
 </style>
