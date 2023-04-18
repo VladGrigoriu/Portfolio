@@ -28,7 +28,7 @@ export default {
     },
     mounted(){
         if(!this.isIcon){
-            fetch(`../../../public/assets/images/${this.icon}?raw`).then(res =>{
+            fetch(`/assets/images/${this.icon}?raw`).then(res =>{
                 res.text().then(text => this.currentIcon = text)
             });
         }

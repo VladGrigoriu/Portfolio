@@ -69,21 +69,43 @@
               </svg>
 
             </div>
-            <div ref="experiences" class="section" data-rate=".1" data-direction="vertical">
+            <div ref="experiences" class="section" id="liquid-experiences" data-rate=".1" data-direction="vertical">
               
-              <div class="liquid left-alignment">
-                <h2>Experiences</h2>
-                <h2>Experiences</h2>
-                <h2>Experiences</h2>
+              <div id="experiences-intro">
+                
+                <div class="liquid left-alignment">
+                  <h2>Experiences</h2>
+                  <h2>Experiences</h2>
+                  <h2>Experiences</h2>
+                </div>
+  
+                <div class="section-image">
+                  <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right" />
+                </div>
+
               </div>
 
-              <div class="section-image">
-                <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right" />
-              </div>
-
-              <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <svg id="experiences-wave" class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
               </svg>
+
+              <div v-for="(experience, index) in experienceStore.experiences" :key="experience.name" class="liquid-experience-container">
+                <RouterLink :to="`/liquid/experience/${experience.name}`">
+                  <div :class="(index+1) % 2 === 0 ? 'liquid-experience-even' : 'liquid-experience-odd'" >
+                    <div :class="(index+1) % 2 === 0 ? 'liquid-experience-desc-even' : 'liquid-experience-desc-odd'">
+                      <h2>{{ experience.name }}</h2>
+                      <p>{{ experience.description }}</p>
+                    </div>
+  
+                    <img :src="experience.main_image" class="liquid-experience-image" />
+                    
+                  </div>
+                </RouterLink>
+
+                <img src="/assets/images/liquid_single_experience.jpg" v-if="(index+1) % 2 !== 0" class="experience-bg" />
+                <img src="/assets/images/liquid_single_experience2.jpg" v-else class="experience-bg" />
+                
+              </div>
 
             </div>
             <div ref="contacts" class="section" data-rate=".1" data-direction="vertical">
@@ -116,6 +138,7 @@
 <script>
 import { useMeStore } from '../stores/me';
 import { useContactStore } from '../stores/contact';
+import { useExperienceStore } from '../stores/experience';
 import SingleSkill from '../components/Liquid/SingleSkill.vue';
 
 export default {
@@ -129,7 +152,8 @@ export default {
   setup(){
 		const meStore = useMeStore();
     const contactStore = useContactStore();
-    return { meStore, contactStore };
+    const experienceStore = useExperienceStore();
+    return { meStore, contactStore, experienceStore };
   },
   methods:{
     scrollToAbout(){
@@ -427,5 +451,106 @@ export default {
 }
 .contact-name{
 	margin-right: 20px;
+}
+#experiences-intro{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#experiences-wave{
+  bottom: -7%;
+}
+#liquid-experiences{
+  height: auto;
+  padding-bottom: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+#liquid-first-element{
+  margin-top: 5%;
+}
+#liquid-last-element{
+  margin-bottom: 5%;
+}
+.liquid-experience-container{
+  width: 80%;
+  position: relative;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  transition: scale 200ms ease;
+}
+.liquid-experience-container:hover{
+  scale: 1.02;
+}
+.liquid-experience-even{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: auto;
+  min-height: 30vh;
+  border-radius: 20px;
+  background-color: #00000001;
+  color: #ccd7e8;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 9999;
+  padding: 40px;
+  
+}
+.liquid-experience-odd{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  min-height: 30vh;
+  border-radius: 20px;
+  background-color: #00000001;
+  color: #ccd7e8;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 9999;
+  padding: 40px;
+
+}
+.liquid-experience-image{
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.liquid-experience-desc-odd{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 60%;
+  flex-direction: column;
+}
+.liquid-experience-desc-even{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 60%;
+  flex-direction: column;
+}
+.experience-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 </style>
