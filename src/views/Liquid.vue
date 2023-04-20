@@ -5,7 +5,19 @@
     <div class="liquid-menu-item" @click="scrollToSkills">Skills</div>
     <div class="liquid-menu-item" @click="scrollToExperiences">Experiences</div>
     <div class="liquid-menu-item" @click="scrollToContacts">Contacts</div>
+    <div id="liquid-menu-icon" @click="openMobileMenu">
+      <FontAwesomeIcon icon="fa-solid fa-bars" />
+    </div>
+
   </header>
+  <div id="mobile-menu"> 
+    <div id="close-icon" @click="closeMenu"><FontAwesomeIcon icon="fa-solid fa-x" /></div>
+    <div class="liquid-menu-item-mobile" @click="scrollToAboutMobile">About</div>
+    <div class="liquid-menu-item-mobile" @click="scrollToSkillsMobile">Skills</div>
+    <div class="liquid-menu-item-mobile" @click="scrollToExperiencesMobile">Experiences</div>
+    <div class="liquid-menu-item-mobile" @click="scrollToContactsMobile">Contacts</div>
+
+  </div>
     <section id="business-container">
         <div id="sliding-bg-business">
           <div id="sections-container" >
@@ -147,9 +159,10 @@ import { useMeStore } from '../stores/me';
 import { useContactStore } from '../stores/contact';
 import { useExperienceStore } from '../stores/experience';
 import SingleSkill from '../components/Liquid/SingleSkill.vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 export default {
-  components: { SingleSkill },
+  components: { SingleSkill, FontAwesomeIcon },
   data(){
     return {
       heroImage: null,
@@ -163,6 +176,12 @@ export default {
     return { meStore, contactStore, experienceStore };
   },
   methods:{
+    openMobileMenu(){
+      document.getElementById('mobile-menu').style.left=0;
+    },
+    closeMenu(){
+      document.getElementById('mobile-menu').style.left='100%';
+    },
     scrollToAbout(){
       this.$refs.about.scrollIntoView({ behavior: "smooth" });
     },
@@ -174,6 +193,22 @@ export default {
 		},
 		scrollToContacts(){
 			this.$refs.contacts.scrollIntoView({ behavior: "smooth" });
+		},
+    scrollToAboutMobile(){
+      this.$refs.about.scrollIntoView({ behavior: "smooth" });
+      document.getElementById('mobile-menu').style.left='100%';
+    },
+    scrollToSkillsMobile(){
+			this.$refs.skills.scrollIntoView({ behavior: "smooth" });
+      document.getElementById('mobile-menu').style.left='100%';
+		},
+		scrollToExperiencesMobile(){
+			this.$refs.experiences.scrollIntoView({ behavior: "smooth" });
+      document.getElementById('mobile-menu').style.left='100%';
+		},
+		scrollToContactsMobile(){
+			this.$refs.contacts.scrollIntoView({ behavior: "smooth" });
+      document.getElementById('mobile-menu').style.left='100%';
 		},
 		restartExperience(){
 			this.$router.push('/introduction');
@@ -209,9 +244,15 @@ export default {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
+#liquid-menu-icon{
+  display: none;
+}
 #business-container{
     background-color: var(--secondary-color);
     min-height: 100vh;
+}
+#mobile-menu{
+  display: none;
 }
 .liquid-button{
   display: flex;
@@ -594,6 +635,44 @@ export default {
 }
 
 @media screen and (max-width:450px){
+  .liquid-menu-item{
+    display: none;
+  }
+  #liquid-menu-icon{
+    display: block;
+  }
+  #business-header{
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  #mobile-menu{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+    height: 100vh;
+    background-color: #00000001;
+    color: var(--text-color);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9;
+    transition: left 300ms ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    font-size: 2em;
+    overflow-x: hidden;
+  }
+  #close-icon{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
   #glass-presentation{
     width: 80%;
   }
@@ -619,6 +698,12 @@ export default {
   }
   .section-image {
       width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .rotate-left, .rotate-right{
+    transform: rotateZ(0deg);
   }
   .wave, .wave2 {
       bottom: -3%;

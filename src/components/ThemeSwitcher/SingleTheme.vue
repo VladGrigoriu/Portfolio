@@ -76,5 +76,9 @@ export default {
   .theme-name{
     font-size: 14px;
   }
+  .single-theme{
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>

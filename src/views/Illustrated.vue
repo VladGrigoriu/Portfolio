@@ -31,37 +31,78 @@
           </ul>
         </div>
 
-        <div class="section">
-          
+        <div class="section" id="illustrated-hero-section">
+          <div id="illustrated-hero-text">
+
+            <div class="shadows">
+                <span v-for="(letter, index) in ['w', 'e', 'l', 'c', 'o', 'm', 'e']" :key="index">
+                  {{ letter }}
+                </span>
+              </div>
+
+          </div>
+          <div id="illustrated-hero-image">
+            <img src="/assets/images/illustration_hero.png" class="hero-image" />
+          </div>
         </div>
         <div class="section">
           <div class="section-content-odd">
             <div>
               <img src="/assets/images/illustrated1.jpg" class="full-w" />
             </div>
-            <div class="section-text">c</div>
+            <div class="section-text">
+              <div class="shadows">
+                <span v-for="(letter, index) in ['a', 'b', 'o', 'u', 't']" :key="index">
+                  {{ letter }}
+                </span>
+              </div>
+            </div>
 
           </div>
         </div>
         <div class="section">
           <div class="section-content-even">
-            <div>c</div>
-            <div class="section-text">c</div>
+            <div>
+              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+            </div>
+            <div class="section-text-even">
+              <div class="shadows">
+                <span v-for="(letter, index) in ['s', 'k', 'i', 'l', 'l', 's']" :key="index">
+                  {{ letter }}
+                </span>
+              </div>
+            </div>
 
           </div>
 
         </div>
         <div class="section">
           <div class="section-content-odd">
-            <div>c</div>
-            <div class="section-text">c</div>
+            <div>
+              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+            </div>
+            <div class="section-text">
+              <div class="shadows">
+                <span v-for="(letter, index) in ['e', 'x', 'p', 'e', 'r', 'i', 'e', 'n', 'c', 'e', 's']" :key="index">
+                  {{ letter }}
+                </span>
+              </div>
+            </div>
 
           </div>
         </div>
         <div class="section">
           <div class="section-content-even">
-            <div>c</div>
-            <div class="section-text">c</div>
+            <div>
+              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+            </div>
+            <div class="section-text-even">
+              <div class="shadows">
+                <span v-for="(letter, index) in ['c', 'o', 'n', 't', 'a', 'c', 't', 's']" :key="index">
+                  {{ letter }}
+                </span>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -87,6 +128,7 @@ export default {
       }
     },
     mounted() {
+      document.getElementsByClassName('nav')[0].classList.remove('menu-animation');
         setTimeout(() => {
             document.getElementById("loader-c").classList.add("loader--active");
         }, 500);
@@ -117,7 +159,8 @@ export default {
 <style scoped>
 #illustrated-container{
   background-color: var(--secondary-color);
-  height: 100vh;
+  height: 100%;
+  overflow-y: hidden;
 }
 .loader {
   position: fixed;
@@ -225,7 +268,7 @@ export default {
 }
 .section-text{
   height: 100%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
 }
 #illustrated-page{
   opacity: 0;
@@ -280,28 +323,36 @@ export default {
 }
 .nav li{
   opacity: 0;
+  /* transition: opacity 200ms ease; */
 }
 /* .menu-animation:nth-child(0){
   opacity: 0;
   animation: show .5s ease forwards;
 } */
+.menu-animation li{
+  animation: show .3s forwards;
+  /* animation-delay: .5s; */
+}
+/* .menu-animation li:nth-child(1){
+  animation-delay: 1s;
+} */
 .menu-animation li:nth-child(1){
-  animation: show .2s ease forwards;
+  animation-delay: .2s;
 }
 .menu-animation li:nth-child(2){
-  animation: show .8s ease forwards;
+  animation-delay: .4s;
 }
 .menu-animation li:nth-child(3){
-  animation: show 1.4s ease forwards;
+  animation-delay: .6s;
 }
 .menu-animation li:nth-child(4){
-  animation: show 2s ease forwards;
+  animation-delay: .8s;
 }
 .menu-animation li:nth-child(5){
-  animation: show 2.6s ease forwards;
+  animation-delay: 1s;
 }
 .menu-animation li:nth-child(6){
-  animation: show 3.2s ease forwards;
+  animation-delay: 1.2s;
 }
 .nav li > p{
   text-align: center;
@@ -331,5 +382,51 @@ export default {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.shadows {
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: -15px 5px 20px var(--secondary-color);
+    color: var(--text-color);
+    letter-spacing: -0.05em;
+    font-family: 'Anton', Arial, sans-serif;
+    user-select: none;
+    text-transform: uppercase;
+    font-size: 80px;
+    transition: all 0.25s ease-out;
+    font-weight: 700;
+}
+.section-text{
+  padding: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.section-text-even{
+  padding: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+#illustrated-hero-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5% 5%;
+}
+.hero-image{
+  width: 80%;
+}
+#illustrated-hero-image{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#illustrated-hero-text{
+  width: 60%;
 }
 </style>
