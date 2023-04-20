@@ -139,7 +139,7 @@ export default {
                 case 'Interactive':
                     document.getElementById('interactive-id').classList.add('loader--active');
                     setTimeout(() => {
-                        this.$router.push('/interactive');
+                        this.$router.push({ path: '/illustrated'});
                     }, 1500);
                     break;
                 case 'Hacker':

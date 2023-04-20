@@ -24,9 +24,9 @@ const router = createRouter({
       component: lazyLoad('Liquid')
     },
     {
-      path: '/interactive',
-      name: 'interactive',
-      component: lazyLoad('Interactive')
+      path: '/illustrated',
+      name: 'illustrated',
+      component: lazyLoad('Illustrated')
     },
     {
       path: '/hacker',
