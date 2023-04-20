@@ -12,6 +12,7 @@
       <div id="illustrated-page">
         <div id="illustrated-header">
           <ul class="nav">
+            <div @click="isMenuOpen ? moveLeft() : moveRight()" id="sidebar-action"><FontAwesomeIcon :icon="isMenuOpen ? 'fa-solid fa-chevron-left'  : 'fa-solid fa-chevron-right'" /></div>
             <li tabindex="0">
               <FontAwesomeIcon icon="fa-solid fa-house"  class="illustrated-menu-item"/>
             </li>
@@ -35,7 +36,9 @@
         </div>
         <div class="section">
           <div class="section-content-odd">
-            <div>c</div>
+            <div>
+              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+            </div>
             <div class="section-text">c</div>
 
           </div>
@@ -74,22 +77,40 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 
 export default {
+    data(){
+      return {
+        isMenuOpen: false
+      }
+    },
     mounted() {
-      setTimeout(() => {
-            document.getElementById('loader-c').classList.add('loader--active');
-        }, 500);
-
         setTimeout(() => {
-            document.getElementById('illustrated-container').style.backgroundColor='var(--primary-color)';
+            document.getElementById("loader-c").classList.add("loader--active");
+        }, 500);
+        setTimeout(() => {
+            document.getElementById("illustrated-container").style.backgroundColor = "var(--primary-color)";
             setTimeout(() => {
-              document.getElementById('loader-c').remove();
-              document.getElementById('illustrated-page').style.opacity=1;
+                document.getElementById("loader-c").remove();
+                document.getElementById("illustrated-page").style.opacity = 1;
             }, 300);
         }, 2000);
-
-        }
+    },
+    methods:{
+      moveRight(){
+        this.isMenuOpen=true;
+        document.getElementsByClassName('nav')[0].classList.add('menu-animation');
+        document.getElementsByClassName('nav')[0].style.left=0;
+      },
+      moveLeft(){
+        this.isMenuOpen=false;
+        document.getElementsByClassName('nav')[0].style.left='-6%';
+        document.getElementsByClassName('nav')[0].classList.remove('menu-animation');
+      }
+    },
+    components: { FontAwesomeIcon }
 }
 </script>
 
@@ -217,10 +238,26 @@ export default {
   justify-content: flex-start;
   position: absolute;
 }
+#sidebar-action{
+  position: absolute;
+  background-color: var(--primary-color);
+  z-index: 10;
+  right: -20px;
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* box-shadow: 5px 0 5px -5px #333; */
+  box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.228);
+  cursor: pointer;
+}
 .nav {
   position: fixed;
   width: 7%;
   height: 80%;
+  left: -6%;
   background-color: var(--primary-color);
   box-shadow: 10px 10px 12px 0 rgba(0, 0, 0, 0.228);
   border-radius: 0 200vh 200vh 0;
@@ -231,6 +268,7 @@ export default {
   gap: 40px;
   list-style-type: none;
   z-index: 20;
+  transition: left 300ms ease;
 }
 
 .illustrated-menu-item{
@@ -239,6 +277,31 @@ export default {
   padding: .7rem .7rem;
   border-radius: 50%;
   color: var(--text-color);
+}
+.nav li{
+  opacity: 0;
+}
+/* .menu-animation:nth-child(0){
+  opacity: 0;
+  animation: show .5s ease forwards;
+} */
+.menu-animation li:nth-child(1){
+  animation: show .2s ease forwards;
+}
+.menu-animation li:nth-child(2){
+  animation: show .8s ease forwards;
+}
+.menu-animation li:nth-child(3){
+  animation: show 1.4s ease forwards;
+}
+.menu-animation li:nth-child(4){
+  animation: show 2s ease forwards;
+}
+.menu-animation li:nth-child(5){
+  animation: show 2.6s ease forwards;
+}
+.menu-animation li:nth-child(6){
+  animation: show 3.2s ease forwards;
 }
 .nav li > p{
   text-align: center;
@@ -263,5 +326,10 @@ export default {
 }
 .nav li:hover .illustrated-menu-item, .nav li:focus .illustrated-menu-item{
   color: orangered;
+}
+.full-w{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 </style>

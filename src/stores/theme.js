@@ -13,6 +13,7 @@ export const useThemeStore = defineStore('theme', {
             document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
         }else{
             document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
       },
       setTheme(theme){

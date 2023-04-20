@@ -6,11 +6,11 @@ import { i18n } from './i18n/i18n'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGithub, faLinkedin, faHtml5, faCss3, faJs, faVuejs, faReact, faAngular, faPhp, faLaravel, faNodeJs } from '@fortawesome/free-brands-svg-icons'
-import { faCaretDown, faEnvelope, faArrowUpRightDots, faArrowUpRightFromSquare, faStar, faChevronRight, faPenNib, faHouse, faMedal, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faEnvelope, faArrowUpRightDots, faArrowUpRightFromSquare, faStar, faChevronRight, faPenNib, faHouse, faMedal, faMessage, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
 import './assets/main.css'
 
-library.add(faGithub, faLinkedin, faCaretDown, faEnvelope, faArrowUpRightDots, faHtml5, faCss3, faJs, faVuejs, faReact, faAngular, faPhp, faLaravel, faNodeJs, faArrowUpRightFromSquare, faStar, faRegularStar, faChevronRight, faPenNib, faHouse, faMedal, faMessage );
+library.add(faGithub, faLinkedin, faCaretDown, faEnvelope, faArrowUpRightDots, faHtml5, faCss3, faJs, faVuejs, faReact, faAngular, faPhp, faLaravel, faNodeJs, faArrowUpRightFromSquare, faStar, faRegularStar, faChevronRight, faPenNib, faHouse, faMedal, faMessage, faChevronLeft );
 
 const pinia = createPinia();
 
