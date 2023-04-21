@@ -1,32 +1,32 @@
 <template>
  <section id="illustrated-container">
-   <div id="loader-c" class="loader">
+   <!-- <div id="loader-c2" class="loader">
        <div class="loader__tile"></div>
        <div class="loader__tile"></div>
        <div class="loader__tile"></div>
        <div class="loader__tile"></div>
        <div class="loader__tile"></div>
-      </div>
+      </div> -->
       
 
       <div id="illustrated-page">
         <div id="illustrated-header">
           <ul class="nav">
             <div @click="isMenuOpen ? moveLeft() : moveRight()" id="sidebar-action"><FontAwesomeIcon :icon="isMenuOpen ? 'fa-solid fa-chevron-left'  : 'fa-solid fa-chevron-right'" /></div>
-            <li tabindex="0">
-              <FontAwesomeIcon icon="fa-solid fa-house"  class="illustrated-menu-item"/>
-            </li>
-            <li tabindex="1">
+            <li tabindex="1" @click="scrollToAbout">
               <FontAwesomeIcon icon="fa-solid fa-pen-nib"  class="illustrated-menu-item"/>
             </li>
-            <li tabindex="2">
+            <li tabindex="2" @click="scrollToSkills">
               <FontAwesomeIcon icon="fa-solid fa-medal"  class="illustrated-menu-item"/>
             </li>
-            <li tabindex="3">
+            <li tabindex="3" @click="scrollToExperiences">
               <FontAwesomeIcon icon="fa-solid fa-star"  class="illustrated-menu-item"/>
             </li>
-            <li tabindex="4">
+            <li tabindex="4" @click="scrollToContacts">
               <FontAwesomeIcon icon="fa-solid fa-message"  class="illustrated-menu-item"/>
+            </li>
+            <li tabindex="0" @click="restartExperience">
+              <FontAwesomeIcon icon="fa-solid fa-house"  class="illustrated-menu-item"/>
             </li>
           </ul>
         </div>
@@ -45,7 +45,7 @@
             <img src="/assets/images/illustration_hero.png" class="hero-image" />
           </div>
         </div>
-        <div class="section">
+        <div class="section" ref="about">
           <div class="section-content-odd">
             <div>
               <img src="/assets/images/illustrated1.jpg" class="full-w" />
@@ -56,14 +56,16 @@
                   {{ letter }}
                 </span>
               </div>
+
+              <p>{{ meStore.bio }}</p>
             </div>
 
           </div>
         </div>
-        <div class="section">
+        <div class="section" ref="skills">
           <div class="section-content-even">
             <div>
-              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+              <img src="/assets/images/illustrated2.jpg" class="full-w" />
             </div>
             <div class="section-text-even">
               <div class="shadows">
@@ -76,10 +78,10 @@
           </div>
 
         </div>
-        <div class="section">
+        <div class="section" ref="experiences">
           <div class="section-content-odd">
             <div>
-              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+              <img src="/assets/images/illustrated3.jpg" class="full-w" />
             </div>
             <div class="section-text">
               <div class="shadows">
@@ -91,10 +93,10 @@
 
           </div>
         </div>
-        <div class="section">
+        <div class="section" ref="contacts">
           <div class="section-content-even">
             <div>
-              <img src="/assets/images/illustrated1.jpg" class="full-w" />
+              <img src="/assets/images/illustrated4.jpg" class="full-w" />
             </div>
             <div class="section-text-even">
               <div class="shadows">
@@ -102,6 +104,9 @@
                   {{ letter }}
                 </span>
               </div>
+                <a v-for="contact in contactStore.contacts" target="_blank" :href="contact.url" :key="contact.name" class="contact">
+                  <span class="contact-name">{{ contact.name }}</span> <FontAwesomeIcon :icon="contact.icon" /> 
+                </a>
             </div>
 
           </div>
@@ -119,28 +124,45 @@
 
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { useMeStore } from '../stores/me';
+import { useContactStore } from '../stores/contact';
+import { useExperienceStore } from '../stores/experience';
 
 
 export default {
     data(){
       return {
-        isMenuOpen: false
+        isMenuOpen: false,
+        loader: '<div id="loader-c2" class="loader2"><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div></div>'
       }
     },
+    setup(){
+      const meStore = useMeStore();
+      const contactStore = useContactStore();
+      const experienceStore = useExperienceStore();
+      return { meStore, contactStore, experienceStore };
+    },
     mounted() {
-      document.getElementsByClassName('nav')[0].classList.remove('menu-animation');
-        setTimeout(() => {
-            document.getElementById("loader-c").classList.add("loader--active");
-        }, 500);
+      document.getElementById('illustrated-container').insertAdjacentHTML('beforebegin', this.loader);
+      setTimeout(() => {
+        document.getElementById("loader-c2").classList.add("loader2--active");
+      }, 500);
+      // document.getElementsByClassName('nav')[0].classList.remove('menu-animation');
         setTimeout(() => {
             document.getElementById("illustrated-container").style.backgroundColor = "var(--primary-color)";
             setTimeout(() => {
-                document.getElementById("loader-c").remove();
+                document.getElementById("loader-c2").remove();
                 document.getElementById("illustrated-page").style.opacity = 1;
             }, 300);
         }, 2000);
     },
     methods:{
+      detectMobile() {
+          return window.innerHeight <= 915 && window.innerWidth <= 450;
+      },
+      detectTablet() {
+          return window.innerHeight <= 1200 && window.innerWidth <= 900;
+      },
       moveRight(){
         this.isMenuOpen=true;
         document.getElementsByClassName('nav')[0].classList.add('menu-animation');
@@ -148,21 +170,37 @@ export default {
       },
       moveLeft(){
         this.isMenuOpen=false;
-        document.getElementsByClassName('nav')[0].style.left='-6%';
+        if (!this.detectMobile() && !this.detectTablet()) {
+          document.getElementsByClassName('nav')[0].style.left='-6%';
+        }else{
+          document.getElementsByClassName('nav')[0].style.left='-17%';
+        }
         document.getElementsByClassName('nav')[0].classList.remove('menu-animation');
+      },
+      scrollToAbout(){
+        this.$refs.about.scrollIntoView({ behavior: "smooth" });
+      },
+      scrollToSkills(){
+        this.$refs.skills.scrollIntoView({ behavior: "smooth" });
+      },
+      scrollToExperiences(){
+        this.$refs.experiences.scrollIntoView({ behavior: "smooth" });
+      },
+      scrollToContacts(){
+        this.$refs.contacts.scrollIntoView({ behavior: "smooth" });
       }
     },
     components: { FontAwesomeIcon }
 }
 </script>
 
-<style scoped>
+<style>
 #illustrated-container{
   background-color: var(--secondary-color);
   height: 100%;
   overflow-y: hidden;
 }
-.loader {
+.loader2 {
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -171,7 +209,7 @@ export default {
   height: 100%;
   transition: width 0s 1.4s ease;
 }
-.loader .loader__tile {
+.loader2 .loader2__tile {
   position: absolute;
   left: 0;
   width: 0;
@@ -179,53 +217,53 @@ export default {
   background-color: var(--primary-color);
   transition: width 0.7s ease;
 }
-.loader .loader__tile:nth-child(0) {
+.loader2 .loader2__tile:nth-child(0) {
   top: calc(-1 * 20%);
   transition-delay: -0.2s;
 }
-.loader .loader__tile:nth-child(1) {
+.loader2 .loader2__tile:nth-child(1) {
   top: calc(0 * 20%);
   transition-delay: 0s;
 }
-.loader .loader__tile:nth-child(2) {
+.loader2 .loader2__tile:nth-child(2) {
   top: calc(1 * 20%);
   transition-delay: 0.2s;
 }
-.loader .loader__tile:nth-child(3) {
+.loader2 .loader2__tile:nth-child(3) {
   top: calc(2 * 20%);
   transition-delay: 0.4s;
 }
-.loader .loader__tile:nth-child(4) {
+.loader2 .loader2__tile:nth-child(4) {
   top: calc(3 * 20%);
   transition-delay: 0.6s;
 }
-.loader .loader__tile:nth-child(5) {
+.loader2 .loader2__tile:nth-child(5) {
   top: calc(4 * 20%);
   transition-delay: 0.8s;
 }
-.loader--active {
+.loader2--active {
   width: 100%;
   transition-delay: 0s;
 }
-.loader--active .loader__tile {
+.loader2--active .loader2__tile {
   width: 100%;
 }
-.loader--active .loader__tile:nth-child(0) {
+.loader2--active .loader2__tile:nth-child(0) {
   transition-delay: -0.2s;
 }
-.loader--active .loader__tile:nth-child(1) {
+.loader2--active .loader2__tile:nth-child(1) {
   transition-delay: 0s;
 }
-.loader--active .loader__tile:nth-child(2) {
+.loader2--active .loader2__tile:nth-child(2) {
   transition-delay: 0.2s;
 }
-.loader--active .loader__tile:nth-child(3) {
+.loader2--active .loader2__tile:nth-child(3) {
   transition-delay: 0.4s;
 }
-.loader--active .loader__tile:nth-child(4) {
+.loader2--active .loader2__tile:nth-child(4) {
   transition-delay: 0.6s;
 }
-.loader--active .loader__tile:nth-child(5) {
+.loader2--active .loader2__tile:nth-child(5) {
   transition-delay: 0.8s;
 }
 .section{
@@ -266,9 +304,9 @@ export default {
   width: 50%;
   height: 100%;
 }
-.section-text{
+.section-text, .section-text-even{
   height: 100%;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  box-shadow: var(--box-shadow-color2) 0px 10px 15px -6px inset, var(--box-shadow-color) 0px 9px 18px -9px inset;
 }
 #illustrated-page{
   opacity: 0;
@@ -363,20 +401,20 @@ export default {
   font-family: "Roboto", sans-serif;
   cursor: pointer;
   transition: color 0.2s ease-out, transform 0.2s ease-out;
-  color: dimgray;
+  color: var(--text-color);
   margin-right: 10px;
 }
 .nav li:hover .illustrated-menu-item{
   transform: scale(1.05);
-  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), -4px -4px 10px white;
+  box-shadow: 4px 4px 10px 0 var(--box-shadow-color), -4px -4px 10px var(--primary-color);
 }
 .nav li:focus .illustrated-menu-item{
   outline: none;
   transform: scale(0.95);
-  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), -4px -4px 10px white, 4px 4px 10px 0 rgba(0, 0, 0, 0.1) inset, -4px -4px 10px white inset;
+  box-shadow: 4px 4px 10px 0 var(--box-shadow-color), -4px -4px 10px var(--primary-color), 4px 4px 10px 0 var(--box-shadow-color) inset, -4px -4px 10px var(--primary-color) inset;
 }
 .nav li:hover .illustrated-menu-item, .nav li:focus .illustrated-menu-item{
-  color: orangered;
+  color: var(--name-color2);
 }
 .full-w{
   height: 100%;
@@ -403,6 +441,8 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  color: var(--text-color);
+  padding-right: 10%;
 }
 .section-text-even{
   padding: 40px;
@@ -410,6 +450,8 @@ export default {
   align-items: flex-end;
   justify-content: flex-start;
   flex-direction: column;
+  color: var(--text-color);
+  padding-left: 10%;
 }
 #illustrated-hero-section{
   display: flex;
@@ -428,5 +470,48 @@ export default {
 }
 #illustrated-hero-text{
   width: 60%;
+}
+.contact{
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 450px){
+  #illustrated-hero-section{
+    flex-direction: column;
+    justify-content: center;
+  }
+  #illustrated-hero-text{
+    width: 90%;
+    text-align: center;
+  }
+  .shadows{
+    font-size: 50px;
+  }
+  #illustrated-hero-image{
+    width: 90%;
+  }
+  .section-content-odd, .section-content-even{
+    flex-direction: column;
+  }
+  .section-content-odd > div, .section-content-even > div {
+    width: 100%;
+    height: 100%;
+  }
+  .nav{
+    width: 20%;
+    left: -17%;
+  }
+  .section-content-odd > div:nth-child(2), .section-content-even > div:nth-child(2){
+    height: auto;
+    min-height: 50vh;
+    padding-bottom: 40px;
+  }
+  .section{
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 </style>

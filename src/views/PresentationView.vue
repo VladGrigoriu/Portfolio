@@ -26,7 +26,7 @@
             <h3>Choose style</h3>
             <div id="style-switcher">
                 <SingleStyle name="Liquid" img="liquid.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
-                <SingleStyle name="Interactive" img="interactive.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Illustrated" img="illustrated.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Retro" img="retro.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
             </div>
@@ -136,7 +136,7 @@ export default {
                         this.$router.push('/liquid');
                     }, 1000);
                     break;
-                case 'Interactive':
+                case 'Illustrated':
                     document.getElementById('interactive-id').classList.add('loader--active');
                     setTimeout(() => {
                         this.$router.push({ path: '/illustrated'});
