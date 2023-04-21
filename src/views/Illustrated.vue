@@ -12,7 +12,7 @@
       <div id="illustrated-page">
         <div id="illustrated-header">
           <ul class="nav">
-            <div @click="isMenuOpen ? moveLeft() : moveRight()" id="sidebar-action"><FontAwesomeIcon :icon="isMenuOpen ? 'fa-solid fa-chevron-left'  : 'fa-solid fa-chevron-right'" /></div>
+            <div @click="isMenuOpen ? moveLeft() : moveRight()" id="sidebar-action"><FontAwesomeIcon :icon="isMenuOpen ? 'fa-solid fa-chevron-left'  : 'fa-solid fa-chevron-right'" class="open-menu-icon" /></div>
             <li tabindex="1" @click="scrollToAbout">
               <FontAwesomeIcon icon="fa-solid fa-pen-nib"  class="illustrated-menu-item"/>
             </li>
@@ -591,6 +591,9 @@ export default {
 }
 .illustrated-experience-container>p{
   padding-right: 30%;
+}
+.open-menu-icon{
+  color: var(--text-color);
 }
 @media screen and (max-width: 450px){
   #illustrated-hero-section{
