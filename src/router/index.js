@@ -47,6 +47,11 @@ const router = createRouter({
       path: '/liquid/experience/:experienceName',
       name: 'liquidExperience',
       component: lazyLoad('LiquidExperience')
+    },
+    {
+      path: '/illustrated/experience/:experienceName',
+      name: 'illustratedExperience',
+      component: lazyLoad('IllustratedExperience')
     }
   ]
 })

@@ -28,7 +28,7 @@
                 <SingleStyle name="Liquid" img="liquid.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Illustrated" img="illustrated.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Retro" img="retro.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
-                <SingleStyle name="Hacker" img="hacker.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
+                <SingleStyle name="Hacker" img="hacker.jpg" :isComingSoon="true" />
             </div>
             <button class="btn continue" @click="startExperience">Continue</button>
         </div>

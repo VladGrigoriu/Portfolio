@@ -67,12 +67,34 @@
             <div>
               <img src="/assets/images/illustrated2.jpg" class="full-w" />
             </div>
-            <div class="section-text-even">
+            <div class="section-text-even" id="illustrated-skills-section">
               <div class="shadows">
                 <span v-for="(letter, index) in ['s', 'k', 'i', 'l', 'l', 's']" :key="index">
                   {{ letter }}
                 </span>
               </div>
+
+              <div id="skills-slider">
+                <Swiper
+                  :autoplay="{ delay: 1200 }" 
+                  :slides-per-view="4"
+                  :space-between="40"   
+                  :breakpoints="{ 100:{ slidesPerView:2 }, 450:{ slidesPerView:4, } }"
+                  >
+                  <SwiperSlide v-for="(skill, index) in meStore.skills" :key="skill.name" :swiper-ref="index" >
+                    <SingleSkill :title="skill.name" :icon="skill.icon" :isIcon="skill.isIcon" />
+                  </SwiperSlide>
+                  <!-- <SwiperSlide :swiper-ref="2">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="3">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="4">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="5">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="3">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="4">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="5">Slide 3</SwiperSlide> -->
+                  
+                </Swiper>
+              </div>
+
             </div>
 
           </div>
@@ -83,11 +105,39 @@
             <div>
               <img src="/assets/images/illustrated3.jpg" class="full-w" />
             </div>
-            <div class="section-text">
+            <div class="section-text" id="illustrated-experiences-section">
               <div class="shadows">
                 <span v-for="(letter, index) in ['e', 'x', 'p', 'e', 'r', 'i', 'e', 'n', 'c', 'e', 's']" :key="index">
                   {{ letter }}
                 </span>
+              </div>
+
+              <div id="experiences-slider">
+                <Swiper
+                  :autoplay="{ delay: 3000 }" 
+                  :slides-per-view="1"
+                  :space-between="50"   
+                  :breakpoints="{ 100:{ slidesPerView:1 }, 450:{ slidesPerView:1, } }"
+                  >
+                  <SwiperSlide v-for="(experience, index) in experienceStore.experiences" :key="experience.name" :swiper-ref="index" >
+                    <div class="illustrated-experience-container">
+                      <div class="illustrated-experience-header">
+                        <h2>{{ experience.name }}</h2>
+                        <img :src="experience.main_image" class="illustrated-experience-image" />
+                      </div>
+                      <p>{{ experience.description }}</p>
+                      <RouterLink class="illustrated-experience-link" :to="`/illustrated/experience/${experience.name}`">Discover More</RouterLink>
+                    </div>
+                  </SwiperSlide>
+                  <!-- <SwiperSlide :swiper-ref="2">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="3">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="4">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="5">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="3">Slide 3</SwiperSlide>
+                  <SwiperSlide :swiper-ref="4">Slide 2</SwiperSlide>
+                  <SwiperSlide :swiper-ref="5">Slide 3</SwiperSlide> -->
+                  
+                </Swiper>
               </div>
             </div>
 
@@ -127,13 +177,28 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { useMeStore } from '../stores/me';
 import { useContactStore } from '../stores/contact';
 import { useExperienceStore } from '../stores/experience';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import SingleSkill from '../components/Illustrated/SingleSkill.vue';
+import SwiperCore, { Autoplay } from 'swiper';
+import 'swiper/swiper.scss';
+import 'swiper/components/effect-fade/effect-fade.scss';
+import 'swiper/components/navigation/navigation.scss';
+  import 'swiper/components/pagination/pagination.scss';
+  import 'swiper/components/scrollbar/scrollbar.scss';
 
+SwiperCore.use([Autoplay]);
 
 export default {
     data(){
       return {
         isMenuOpen: false,
-        loader: '<div id="loader-c2" class="loader2"><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div></div>'
+        loader: '<div id="loader-c2" class="loader2"><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div><div class="loader2__tile"></div></div>',
+        swiperBreakpoints:{
+          450: {       
+            slidesPerView: 1,
+            spaceBetween: 10     
+          },   
+        }
       }
     },
     setup(){
@@ -143,6 +208,7 @@ export default {
       return { meStore, contactStore, experienceStore };
     },
     mounted() {
+      
       document.getElementById('illustrated-container').insertAdjacentHTML('beforebegin', this.loader);
       setTimeout(() => {
         document.getElementById("loader-c2").classList.add("loader2--active");
@@ -190,7 +256,7 @@ export default {
         this.$refs.contacts.scrollIntoView({ behavior: "smooth" });
       }
     },
-    components: { FontAwesomeIcon }
+    components: { FontAwesomeIcon, Swiper, SwiperSlide, SingleSkill }
 }
 </script>
 
@@ -475,7 +541,57 @@ export default {
   margin-top: 20px;
   font-size: 1.5em;
 }
-
+#skills-slider{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#experiences-slider{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#illustrated-skills-section{
+  padding-left: 5%;
+}
+#illustrated-experiences-section{
+  padding-right: 5%;
+}
+.illustrated-experience-container{
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 35vh;
+}
+.illustrated-experience-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.illustrated-experience-header>h2{
+  width: 70%;
+}
+.illustrated-experience-header>img{
+  width: 20%;
+}
+.illustrated-experience-image{
+  width: 20%;
+}
+.illustrated-experience-link{
+  margin-top: 10px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.illustrated-experience-container>p{
+  padding-right: 30%;
+}
 @media screen and (max-width: 450px){
   #illustrated-hero-section{
     flex-direction: column;
@@ -512,6 +628,12 @@ export default {
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
+  }
+  #illustrated-skills-section{
+    padding: 40px;
+  }
+  .section-text > p, #experiences-slider, #skills-slider{
+    margin-top: 20px;
   }
 }
 </style>

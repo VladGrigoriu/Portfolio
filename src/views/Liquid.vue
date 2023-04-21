@@ -757,5 +757,15 @@ export default {
   #liquid-skills-section > .section-description2{
     width: 90%;
   }
+  .wave, .wave2{
+    bottom: -1%;
+    transform: scale(1,1);
+  }
+  #experiences-wave {
+    bottom: -1%;
+  }
+  #liquid-experiences{
+    padding-bottom: 80px;
+  }
 }
 </style>
