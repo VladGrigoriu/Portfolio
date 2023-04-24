@@ -5,7 +5,7 @@ export const useLocaleStore = defineStore('locale', {
     state: () => {
       return { 
         theme: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
-        locales: ["en", "it", "in", "es", "cn","fr"]
+        locales: ["en", "it", "in", "es","fr"]
     }
     },
     

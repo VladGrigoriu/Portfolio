@@ -24,8 +24,9 @@
 					<div class="side-topbar">
 						<img src="/assets/images/character1.png" class="illustration left-illustration"/>
 					</div>
-					<div id="center-topbar" class="name retro-title">
-						WELCOME
+					<div id="center-topbar">
+						<div class="name retro-title">VLAD GRIGORIU</div><br>
+						<p>{{ $t('software_developer') }}</p>
 					</div>
 					<div class="side-topbar">
 						<img src="/assets/images/character1.png" class="illustration"/>
@@ -41,6 +42,7 @@
 					<div id="box-one" class="right-border">
 						<h2 class="box-title retro-title">BIOGRAPHY</h2>
 						<p class="box-text incremental-padding">{{ meStore.bio }}</p>
+						<RouterLink to="/retro/about"><button class="read-more">Read More</button></RouterLink>
 						<img src="/assets/images/character4.png" class="illustration bio-man"/>
 					</div>
 					<div id="box-two">
@@ -67,7 +69,7 @@
 
 				<Separator direction="right" :colored="true" />
 
-				<Subtitle title="SKILLS" ref="feSkills"/>
+				<Subtitle :title="$t('menu.skills').toUpperCase()" ref="feSkills"/>
 
 				<Separator direction="left" :colored="true" />
 
@@ -173,7 +175,7 @@
 
 				<Separator direction="left" :colored="true" />
 
-				<Subtitle title="EXPERIENCES" ref="experiences" />
+				<Subtitle :title="$t('menu.experiences').toUpperCase()" ref="experiences" />
 
 				<Separator direction="right" :colored="true" />
 
@@ -181,13 +183,13 @@
 
 				<Separator direction="left" :colored="true" />
 
-				<Subtitle title="CONTACTS" ref="contacts" />
+				<Subtitle :title="$t('menu.contacts').toUpperCase()" ref="contacts" />
 
 				<Separator direction="right" :colored="true" />
 
 				<div id="contacts-section">
 					<div id="contact-box1" class="left-border">
-						<h2 class="contacts-title retro-title">CONTACTS</h2>
+						<h2 class="contacts-title retro-title">{{ $t('menu.contacts').toUpperCase() }}</h2>
 						<a v-for="contact in contactStore.contacts" target="_blank" :href="contact.url" :key="contact.name" class="contact">
 							<span class="contact-name">{{ contact.name }}</span> <FontAwesomeIcon :icon="contact.icon" /> 
 						</a>
@@ -241,9 +243,10 @@ import { useContactStore } from '../stores/contact';
 import { useMeStore } from '../stores/me';
 import NoiseBackground from '../components/Retro/NoiseBackground.vue';
 import JournalBackground from '../components/Retro/JournalBackground.vue';
+import { RouterLink } from 'vue-router';
 
 export default {
-	components: { Separator, FontAwesomeIcon, SingleSkill, Subtitle, Experiences, Stars, Menu, NoiseBackground, JournalBackground },
+	components: { Separator, FontAwesomeIcon, SingleSkill, Subtitle, Experiences, Stars, Menu, NoiseBackground, JournalBackground, RouterLink },
 	setup(){
         const contactStore = useContactStore();
 		const meStore = useMeStore();

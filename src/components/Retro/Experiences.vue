@@ -5,7 +5,7 @@
                 <RouterLink :to="`/retro/experience/${experience.name}`"><h2 :class="(index+1) % 2 === 0 ? 'p-left p-top retro-subtitle' : 'p-right p-top retro-subtitle'">{{ experience.name }}</h2></RouterLink>
                 <p :class="(index+1) % 2 === 0 ? 'p-left text-left' : 'p-right text-right'">
                     {{ experience.description }} <br>
-                    <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><strong>Discover More  <FontAwesomeIcon icon="fa-solid fa-chevron-right" /> </strong></RouterLink>
+                    <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><button class="read-more">Discover More  <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></button> </RouterLink>
                 </p>
                 <div :class="(index+1) % 2 === 0 ? 'experience-actions-left' : 'experience-actions-right'">
                     <div v-for="link in experience.links" :key="link.name" :class="(index+1) % 2 === 0 ? 'single-link-right' : 'single-link-left'">
@@ -217,7 +217,17 @@ export default {
     text-decoration: underline;
     margin-top: 20px;
 }
-
+.read-more{
+	margin-top: 10px;
+	padding: 5px;
+	background-color: transparent;
+	border: 1px solid black;
+	cursor: pointer;
+}
+.read-more:hover{
+	color: white;
+	background-color: black;
+}
 @media screen and (max-width: 450px){
     .experience-image{
         width: 100%;

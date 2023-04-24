@@ -1,6 +1,65 @@
 {
-    "welcome_message": "Basta una goccia per raccontare una storia",
-    "short_description": "Uno sviluppatore creativo",
+    "welcome_message": "It just takes a drop to tell a story",
+    "short_description": "Software Developer",
     "customize": "Personalizza la tua esperienza",
-    "choose_theme": "Scegli il tema"
+    "choose_theme": "Scegli il tema",
+    "choose_style": "Scegli lo stile",
+    "software_developer": "Software Developer",
+    "bio": "Sono un programmatore di software di {years} anni con sede a Roma, in Italia. Ho lavorato con sistemi e tecnologie Front-end e Back-end per aiutare a costruire ottimi software sul web. Durante la mia esperienza lavorativa ho supportato varie aziende nella digitalizzazione del loro business. Ho esperienza nello sviluppo, design, testing, correzione di bug, manutenzione e ottimizzazione di applicazioni web o mobile utilizzando i framework di sviluppo più moderni.",
+    "long_bio": "Come sviluppatore software di {years} anni con sede a Roma, in Italia, ho avuto il privilegio di lavorare con sistemi e tecnologie sia front-end che back-end, il che mi ha permesso di creare un ottimo software sul web. Durante la mia esperienza lavorativa ho avuto l'opportunità di supportare diverse aziende nella digitalizzazione e nell'ottimizzazione del loro business. Ho aiutato i clienti a comprendere le loro esigenze e i loro obiettivi e ho progettato e implementato soluzioni che hanno superato le loro aspettative. Oltre al mio lavoro di sviluppo, ho esperienza nella progettazione, test, correzione di bug, manutenzione e ottimizzazione di applicazioni web o mobili. Ciò include l'esecuzione di revisioni del codice, la risoluzione dei problemi e l'ottimizzazione delle prestazioni per garantire che le applicazioni funzionino in modo fluido ed efficiente. <br><br>Sono anche esperto in linguaggi di programmazione come Javascript, HTML, CSS, Python, PHP e C#, oltre a framework e strumenti come React, Angular, Vue, Laravel, ASP .NET, Django e Node .js. <br><br>La mia esperienza mi ha fornito una profonda comprensione dei moderni framework e strumenti di sviluppo che sono essenziali per creare software di alta qualità. Ho una solida esperienza nel lavorare con database, piattaforme cloud e altri strumenti comunemente utilizzati nello sviluppo di software. <br><br>Nel complesso, sono un abile sviluppatore di software che si dedica ad aiutare le aziende di tutte le dimensioni a raggiungere i propri obiettivi attraverso soluzioni software personalizzate. Che si tratti di creare una nuova applicazione da zero o di ottimizzarne una esistente, sono fiducioso nella mia capacità di fornire risultati che soddisfino e superino le aspettative.",
+    "menu":{
+        "about": "Info",
+        "skills": "Competenze",
+        "experiences": "Esperienze",
+        "contacts": "Contatti"
+    },
+    "degg":{
+        "short_description": "Software e Lead Developer",
+        "roles":{
+            "software_developer":{
+                "name": "Software Developer",
+                "description": "Impostare, sviluppare o supervisionare la realizzazione di progetti. Installare programmi o applicazioni. Adottare strumenti e procedure per la progettazione funzionale e lo sviluppo di interfacce. Adottare strumenti e procedure per la progettazione funzionale del database. Adottare procedure per la generazione di database con l'ausilio di strumenti di sviluppo. Realizzazione di siti web."
+            },
+            "lead_software_developer":{
+                "name": "Lead Software Developer",
+                "description": "Creare, modificare o verificare software e altre applicazioni. Curare i rapporti con i clienti. Fornire assistenza clienti. Gestire il team per raggiungere obiettivi e scadenze. Formare le risorse sulle tecnologie Frontend e Backend. Consulenza ai clienti su software o sistemi informatici."
+            },
+            "cto":{
+                "name": "CTO",
+                "description": "Gestione dei piani tecnologici dell'azienda. Immaginare come verranno utilizzate diverse forme di tecnologia all'interno dell'azienda. Ricerca di modi per migliorare le risorse tecnologiche dell'azienda. Valutare se le nuove tecnologie sono appropriate per l'azienda da utilizzare. Garantire che le tecnologie attualmente in uso siano efficienti e apportare modifiche ove necessario."
+            }
+        }
+    },
+    "irradia":{
+        "short_description": "Web Developer",
+        "roles":{
+            "web_developer":{
+                "name": "Web Developer",
+                "description": "Ho lavorato molto con Wordpress. Ho creato e modificato siti web utilizzando Wordpress, assicurandomi che i siti fossero funzionali, visivamente accattivanti e ottimizzati per diversi dispositivi e browser. Ho anche sviluppato plug-in personalizzati che hanno aggiunto varie funzionalità ai siti Web, come l'integrazione dei social media, i moduli di contatto e le funzionalità di e-commerce. Inoltre, ho creato temi personalizzati per i siti Web Wordpress, progettando i layout, le combinazioni di colori, i caratteri e la grafica dei siti. Mi sono assicurato che i temi fossero reattivi, ottimizzati per l'ottimizzazione per i motori di ricerca (SEO) e visivamente accattivanti. Ho anche gestito i clienti e ho fornito loro assistenza. Ciò ha comportato la comunicazione con i clienti per raccogliere i requisiti, fornire aggiornamenti sullo stato dei progetti e fornire supporto tecnico ai clienti che avevano domande o problemi con i loro siti web. Nel complesso, questa esperienza ha comportato l'utilizzo della mia profonda conoscenza dei principi di sviluppo web e dei linguaggi di codifica come HTML, CSS, PHP e JavaScript per creare, modificare e ottimizzare i siti Web utilizzando Wordpress."
+            }
+        }
+    },
+    "freelance_developer":{
+        "short_description": "Software e Web Developer",
+        "roles":{
+            "software_and_web_developer":{
+                "name": "Software and Web Developer",
+                "description": "Durante la mia esperienza come freelance, ho avuto l'opportunità di lavorare con i clienti per creare siti Web utilizzando WordPress. Ho lavorato a stretto contatto con ogni cliente per comprendere le loro esigenze e obiettivi unici, quindi ho progettato e sviluppato siti Web WordPress personalizzati per soddisfare tali requisiti. Oltre allo sviluppo di siti web, ho anche fornito servizi di consulenza ai clienti. Ciò ha comportato la consulenza ai clienti sulle migliori pratiche per la progettazione, l'ottimizzazione e la manutenzione del sito web. Ho aiutato i clienti a prendere decisioni informate sui loro siti Web e ho fornito indicazioni su come migliorare le prestazioni del sito Web. Il mio lavoro di sviluppo di WordPress ha comportato l'utilizzo di una varietà di competenze, tra cui lo sviluppo di temi personalizzati, lo sviluppo di plug-in e la codifica HTML/CSS. Mi sono assicurato che tutti i siti Web che ho creato fossero reattivi e ottimizzati per i motori di ricerca per garantire la migliore esperienza utente possibile. Durante tutto il processo, ho mantenuto una comunicazione chiara con i clienti per tenerli aggiornati sui progressi dei loro siti Web e affrontare eventuali dubbi. Il mio obiettivo è sempre stato quello di creare siti web che non solo soddisfacessero le esigenze dei clienti, ma superassero anche le loro aspettative. Nel complesso, la mia esperienza di freelance ha comportato l'utilizzo della mia esperienza nello sviluppo e nella consulenza di WordPress per fornire siti Web di alta qualità ai clienti che soddisfacessero le loro esigenze e li aiutassero a raggiungere i loro obiettivi."
+            }
+        }
+    },
+    "travel_journal":{
+        "short_description": "Applicazione social media focalizzata sui viaggiatori",
+        "roles":{
+            "name": "Applicazione social media focalizzata sui viaggiatori",
+            "description": "Un progetto di sviluppo software che prevedeva la creazione di una piattaforma social. Il progetto è stato suddiviso in diversi sistemi indipendenti, tra cui la gestione degli utenti, la gestione dei ruoli, la gestione dei media, la gestione dei profili e la gestione dei feed. Questi sistemi sono stati realizzati utilizzando la tecnologia dei database MySQL. Per il back-end del progetto, abbiamo utilizzato Laravel per creare API che esponessero le funzionalità dei diversi sistemi. Questo ci ha permesso di interagire facilmente con i sistemi e recuperare i dati necessari. Il back-end di Laravel era responsabile della gestione delle richieste dall'applicazione front-end Vue.js e della fornitura delle relative risposte. Il front-end del progetto è stato realizzato utilizzando Vue.js. L'applicazione Vue.js era responsabile dell'interfacciamento con il back-end di Laravel e della presentazione dei dati in modo intuitivo. L'applicazione ha consentito agli utenti di creare profili, gestire i propri feed e interagire con altri utenti sulla piattaforma social. Nel complesso, il progetto ha richiesto una profonda conoscenza della tecnologia dei database, dello sviluppo delle API e dello sviluppo front-end. Ho utilizzato la mia conoscenza di queste tecnologie per costruire una piattaforma social solida ed efficiente che soddisfacesse le esigenze degli utenti."
+        }
+    },
+    "coinsxplorers":{
+        "short_description": "App di monitoraggio delle criptovalute con funzionalità di aggregazione dei dati",
+        "roles":{
+            "name": "Applicazione di monitoraggio delle criptovalute con funzionalità di aggregazione dei dati",
+            "description": "Un progetto di sviluppo software, sono stato coinvolto nella costruzione di una piattaforma per il monitoraggio delle criptovalute. Il progetto consisteva in due componenti principali: un back-end Laravel e un front-end React. Il back-end di Laravel si è interfacciato con l'API di Coingecko per recuperare i prezzi delle criptovalute in tempo reale. Abbiamo applicato la logica di aggregazione ai dati per assicurarci che fossero accurati e affidabili. Il back-end di Laravel era responsabile dell'elaborazione dei dati e della loro messa a disposizione del front-end di React tramite API. Il front-end di React è stato progettato per presentare i dati della criptovaluta in modo chiaro e intuitivo. Abbiamo utilizzato varie tecniche di visualizzazione dei dati per aiutare gli utenti a comprendere meglio i dati. Il front-end ha inoltre fornito agli utenti strumenti per analizzare e confrontare i prezzi delle criptovalute. Il progetto richiedeva una profonda conoscenza dello sviluppo delle API, dell'aggregazione dei dati e dello sviluppo front-end. Ho utilizzato la mia conoscenza di queste tecnologie per costruire una piattaforma solida ed efficiente che soddisfacesse le esigenze dei nostri utenti."
+        }
+    }
 }

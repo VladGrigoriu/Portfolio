@@ -1,6 +1,65 @@
 {
     "welcome_message": "It just takes a drop to tell a story",
-    "short_description": "A creative developer",
+    "short_description": "Software Developer",
     "customize": "Customize your experience",
-    "choose_theme": "Choose Theme"
+    "choose_theme": "Choose Theme",
+    "choose_style": "Choose Style",
+    "software_developer": "Software Developer",
+    "bio": "I'm a {years} years old software developer based in Rome, Italy. I have worked with Front-end and Back-end Systems and Technologies to help build great software on the web. During my work experience I have supported various companies in digitalizing their business. I have experience in development, design, testing, bug fixing, maintenance and optimizations of web or mobile applications using the most modern development frameworks.",
+    "long_bio": "As a {years}-year-old software developer based in Rome, Italy, I have had the privilege of working with both front-end and back-end systems and technologies, which has allowed me to build great software on the web. During my work experience, I have had the opportunity to support various companies in digitizing and optimizing their businesses. I have helped clients understand their needs and goals and designed and implemented solutions that exceeded their expectations. In addition to my development work, I have experience in design, testing, bug fixing, maintenance, and optimization of web or mobile applications. This includes conducting code reviews, troubleshooting issues, and optimizing performance to ensure that applications are running smoothly and efficiently. <br><br>I am also proficient in programming languages such as Javascript, HTML, CSS, Python, PHP and C#, as well as frameworks and tools like React, Angular, Vue, Laravel, ASP .NET, Django, and Node.js. <br><br>My experience has given me a deep understanding of the modern development frameworks and tools that are essential to building high-quality software. I have a strong background in working with databases, cloud platforms, and other tools that are commonly used in software development. <br><br>Overall, I am a skilled software developer who is dedicated to helping companies of all sizes achieve their goals through customized software solutions. Whether it's building a new application from scratch or optimizing an existing one, I am confident in my ability to deliver results that meet and exceed expectations.",
+    "menu":{
+        "about": "About",
+        "skills": "Skills",
+        "experiences": "Experiences",
+        "contacts": "Contacts"
+    },
+    "degg":{
+        "short_description": "Software and Lead Developer",
+        "roles":{
+            "software_developer":{
+                "name": "Software Developer",
+                "description": "Set up, develop or supervise the realization of projects. Install programs or applications. Adopt tools and procedures for functional design and interface development. Adopt tools and procedures for the functional design of the database. Adopt procedures for generating databases with the help of development tools. Making websites."
+            },
+            "lead_software_developer":{
+                "name": "Lead Software Developer",
+                "description": "Create, modify or verify software and other applications. Maintain relationships with customers. Provide customer support. Manage the team to achieve goals and deadlines. Train resources on Frontend and Backend technologies. Advising customers on software or computer systems."
+            },
+            "cto":{
+                "name": "CTO",
+                "description": "Management of the company's technological plans. Imagine how different forms of technology will be used across the enterprise. Seeking ways to improve the company's technology assets. Evaluate whether new technologies are appropriate for the business to use. Ensure that the technologies currently in use are efficient and make changes where necessary."
+            }
+        }
+    },
+    "irradia":{
+        "short_description": "Web Developer",
+        "roles":{
+            "web_developer":{
+                "name": "Web Developer",
+                "description": "I worked extensively with Wordpress. I created and modified websites using Wordpress, ensuring that the sites were functional, visually appealing, and optimized for different devices and browsers. I also developed custom plugins that added various features to the websites, such as social media integration, contact forms, and e-commerce capabilities. In addition, I created custom themes for Wordpress websites, designing the sites' layouts, color schemes, fonts, and graphics. I made sure that the themes were responsive, optimized for search engine optimization (SEO), and visually appealing. I also managed clients and provided them with assistance. This involved communicating with clients to gather requirements, providing updates on the status of projects, and providing technical support to clients who had questions or issues with their websites. Overall, this experience involved using my strong understanding of web development principles and coding languages such as HTML, CSS, PHP, and JavaScript to create, modify, and optimize websites using Wordpress."
+            }
+        }
+    },
+    "freelance_developer":{
+        "short_description": "Software and Web Developer",
+        "roles":{
+            "software_and_web_developer":{
+                "name": "Software and Web Developer",
+                "description": "During my freelance experience, I had the opportunity to work with clients to build websites using WordPress. I worked closely with each client to understand their unique needs and goals, and then designed and developed custom WordPress websites to meet those requirements. In addition to website development, I also provided consulting services to clients. This involved advising clients on best practices for website design, optimization, and maintenance. I helped clients make informed decisions about their websites and provided guidance on how to improve website performance. My WordPress development work involved using a variety of skills, including custom theme development, plugin development, and HTML/CSS coding. I made sure that all websites I built were responsive and optimized for search engines to ensure the best possible user experience. Throughout the process, I maintained clear communication with clients to keep them updated on the progress of their websites and address any concerns they had. My goal was always to build websites that not only met the clients' needs but also exceeded their expectations. Overall, my freelance experience involved using my expertise in WordPress development and consulting to deliver high-quality websites to clients that met their needs and helped them achieve their goals."
+            }
+        }
+    },
+    "travel_journal":{
+        "short_description": "Social Media application focused on travellers",
+        "roles":{
+            "name": "Social Media application focused on travellers",
+            "description": "A software development project that involved building a social platform. The project was divided into several independent systems, including user management, role management, media management, profile management, and feed management. These systems were built using MySQL database technology. For the back-end of the project, we used Laravel to create APIs that exposed the functionality of the different systems. This allowed us to easily interact with the systems and retrieve the necessary data. The Laravel back-end was responsible for handling requests from the Vue.js front-end application and providing the relevant responses. The front-end of the project was built using Vue.js. The Vue.js application was responsible for interfacing with the Laravel back-end and presenting the data in a user-friendly manner. The application allowed users to create profiles, manage their feeds, and interact with other users on the social platform. Overall, the project required a strong understanding of database technology, API development, and front-end development. I utilized my knowledge of these technologies to build a robust and efficient social platform that met the needs of the users."
+        }
+    },
+    "coinsxplorers":{
+        "short_description": "Crypto tracking app with data aggregation functionality",
+        "roles":{
+            "name": "Crypto Tracking App with data aggregation",
+            "description": "A software development project, I was involved in building a platform for tracking cryptocurrencies. The project consisted of two main components: a Laravel back-end and a React front-end. The Laravel back-end interfaced with the Coingecko API to retrieve cryptocurrency prices in real-time. We applied aggregation logic to the data to ensure that it was accurate and reliable. The Laravel back-end was responsible for processing the data and making it available to the React front-end via APIs. The React front-end was designed to present the cryptocurrency data in a clear and user-friendly manner. We utilized various data visualization techniques to help users understand the data better. The front-end also provided users with tools to analyze and compare cryptocurrency prices. The project required a strong understanding of API development, data aggregation, and front-end development. I utilized my knowledge of these technologies to build a robust and efficient platform that met the needs of our users."
+        }
+    }
 }

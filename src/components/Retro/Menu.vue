@@ -1,9 +1,9 @@
 <template>
     <div id="menu">
-        <div class="menu-item right-border" @click="$emit('scollToAbout')">ABOUT</div>
-        <div class="menu-item right-border" @click="$emit('scrollToFESkills')">SKILLS</div>
-        <div class="menu-item right-border" @click="$emit('scrollToExperiences')">EXPERIENCES</div>
-        <div class="menu-item" @click="$emit('scrollToContacts')">CONTACTS</div>
+        <RouterLink class="menu-item right-border" to="/retro/about"><div>{{ $t('menu.about').toLocaleUpperCase() }}</div></RouterLink>
+        <div class="menu-item right-border" @click="$emit('scrollToFESkills')">{{ $t('menu.skills').toLocaleUpperCase() }}</div>
+        <div class="menu-item right-border" @click="$emit('scrollToExperiences')">{{ $t('menu.experiences').toLocaleUpperCase() }}</div>
+        <div class="menu-item" @click="$emit('scrollToContacts')">{{ $t('menu.contacts').toLocaleUpperCase() }}</div>
     </div>
 </template>
 

@@ -13,8 +13,8 @@
         <div id="illustrated-header">
           <ul class="nav">
             <div @click="isMenuOpen ? moveLeft() : moveRight()" id="sidebar-action"><FontAwesomeIcon :icon="isMenuOpen ? 'fa-solid fa-chevron-left'  : 'fa-solid fa-chevron-right'" class="open-menu-icon" /></div>
-            <li tabindex="1" @click="scrollToAbout">
-              <FontAwesomeIcon icon="fa-solid fa-pen-nib"  class="illustrated-menu-item"/>
+            <li tabindex="1">
+              <RouterLink to="/illustrated/about"><FontAwesomeIcon icon="fa-solid fa-pen-nib"  class="illustrated-menu-item"/></RouterLink>
             </li>
             <li tabindex="2" @click="scrollToSkills">
               <FontAwesomeIcon icon="fa-solid fa-medal"  class="illustrated-menu-item"/>
@@ -35,10 +35,12 @@
           <div id="illustrated-hero-text">
 
             <div class="shadows">
-                <span v-for="(letter, index) in ['w', 'e', 'l', 'c', 'o', 'm', 'e']" :key="index">
+                <span v-for="(letter, index) in ['v', 'l', 'a', 'd', ' ', 'g', 'r', 'i', 'g', 'o', 'r', 'i', 'u']" :key="index">
                   {{ letter }}
                 </span>
               </div>
+
+              <div class="ill-name-desc">{{ $t('software_developer') }}</div>
 
           </div>
           <div id="illustrated-hero-image">
@@ -52,12 +54,13 @@
             </div>
             <div class="section-text">
               <div class="shadows">
-                <span v-for="(letter, index) in ['a', 'b', 'o', 'u', 't']" :key="index">
+                <span v-for="(letter, index) in $t('menu.about').split('')" :key="index">
                   {{ letter }}
                 </span>
               </div>
 
               <p>{{ meStore.bio }}</p>
+              <RouterLink to="/illustrated/about"><button class="illustrated-button">Read More</button></RouterLink>
             </div>
 
           </div>
@@ -69,7 +72,7 @@
             </div>
             <div class="section-text-even" id="illustrated-skills-section">
               <div class="shadows">
-                <span v-for="(letter, index) in ['s', 'k', 'i', 'l', 'l', 's']" :key="index">
+                <span v-for="(letter, index) in $t('menu.skills').split('')" :key="index">
                   {{ letter }}
                 </span>
               </div>
@@ -107,7 +110,7 @@
             </div>
             <div class="section-text" id="illustrated-experiences-section">
               <div class="shadows">
-                <span v-for="(letter, index) in ['e', 'x', 'p', 'e', 'r', 'i', 'e', 'n', 'c', 'e', 's']" :key="index">
+                <span v-for="(letter, index) in $t('menu.experiences').split('')" :key="index">
                   {{ letter }}
                 </span>
               </div>
@@ -126,7 +129,7 @@
                         <img :src="experience.main_image" class="illustrated-experience-image" />
                       </div>
                       <p>{{ experience.description }}</p>
-                      <RouterLink class="illustrated-experience-link" :to="`/illustrated/experience/${experience.name}`">Discover More</RouterLink>
+                      <RouterLink class="exp-illustrated-button" :to="`/illustrated/experience/${experience.name}`">Discover More</RouterLink>
                     </div>
                   </SwiperSlide>
                   <!-- <SwiperSlide :swiper-ref="2">Slide 2</SwiperSlide>
@@ -150,7 +153,7 @@
             </div>
             <div class="section-text-even">
               <div class="shadows">
-                <span v-for="(letter, index) in ['c', 'o', 'n', 't', 'a', 'c', 't', 's']" :key="index">
+                <span v-for="(letter, index) in $t('menu.contacts').split('')" :key="index">
                   {{ letter }}
                 </span>
               </div>
@@ -208,7 +211,6 @@ export default {
       return { meStore, contactStore, experienceStore };
     },
     mounted() {
-      
       document.getElementById('illustrated-container').insertAdjacentHTML('beforebegin', this.loader);
       setTimeout(() => {
         document.getElementById("loader-c2").classList.add("loader2--active");
@@ -433,6 +435,12 @@ export default {
   opacity: 0;
   animation: show .5s ease forwards;
 } */
+.ill-name-desc{
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
+}
 .menu-animation li{
   animation: show .3s forwards;
   /* animation-delay: .5s; */
@@ -536,6 +544,10 @@ export default {
 }
 #illustrated-hero-text{
   width: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 .contact{
   margin-top: 20px;
@@ -566,7 +578,7 @@ export default {
   height: 100%;
   background-color: var(--text-color);
   color: var(--secondary-color);
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   min-height: 35vh;
 }
@@ -591,9 +603,51 @@ export default {
 }
 .illustrated-experience-container>p{
   padding-right: 30%;
+  margin-bottom: 20px;
 }
 .open-menu-icon{
   color: var(--text-color);
+}
+.illustrated-button {
+  padding: 10px;
+  background: var(--primary-color);
+  border: none;
+  /* border-radius: .5rem; */
+  color: var(--text-color);
+  /* font-size: 1rem; */
+  font-weight: 700;
+  /* letter-spacing: .2rem; */
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  box-shadow: -6px -6px 14px var(--neom-btn),
+              -6px -6px 10px var(--neom-btn2),
+              6px 6px 8px var(--neom-btn3),
+              6px 6px 10px var(--neom-btn4);
+  margin-top: 20px;
+}
+.illustrated-button:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+              -2px -2px 4px rgba(255, 255, 255, .4),
+              2px 2px 2px rgba(255, 255, 255, .05),
+              2px 2px 4px rgba(0, 0, 0, .1);
+}
+.illustrated-button:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+              inset -2px -2px 4px rgba(255, 255, 255, .5),
+              inset 2px 2px 2px rgba(255, 255, 255, .075),
+              inset 2px 2px 4px rgba(0, 0, 0, .15);
+}
+.exp-illustrated-button{
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+.exp-illustrated-button:hover{
+  background-color: var(--text-color);
+  color: var(--primary-color);
 }
 @media screen and (max-width: 450px){
   #illustrated-hero-section{
@@ -637,6 +691,22 @@ export default {
   }
   .section-text > p, #experiences-slider, #skills-slider{
     margin-top: 20px;
+  }
+  .section-text-even{
+    justify-content: space-evenly;
+  }
+  #illustrated-hero-text{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .ill-name-desc{
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
   }
 }
 </style>

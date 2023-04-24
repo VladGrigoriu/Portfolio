@@ -24,7 +24,7 @@
                     <SingleTheme theme="night-blue" themeName="Blue" />
                 </template>
             </ThemeSwitcher>
-            <h3>Choose style</h3>
+            <h3>{{ $t('choose_style') }}</h3>
             <div id="style-switcher">
                 <SingleStyle name="Liquid" img="liquid.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />
                 <SingleStyle name="Illustrated" img="illustrated.jpg" @selectStyle="selectStyle" :selected="selectedStyle" />

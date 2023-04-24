@@ -16,6 +16,7 @@
 
 <script>
 import { useLocaleStore } from '../../stores/locale'
+import { useExperienceStore } from '../../stores/experience'
 
 export default {
     data() {
@@ -25,7 +26,8 @@ export default {
     },
     setup(){
         const localeStore = useLocaleStore();
-        return { localeStore };
+        const experienceStore = useExperienceStore();
+        return { localeStore, experienceStore };
     },
     methods: {
         changeLocale(locale){

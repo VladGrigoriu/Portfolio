@@ -24,9 +24,19 @@ const router = createRouter({
       component: lazyLoad('Liquid')
     },
     {
+      path: '/liquid/about',
+      name: 'liquid-about',
+      component: lazyLoad('LiquidAbout')
+    },
+    {
       path: '/illustrated',
       name: 'illustrated',
       component: lazyLoad('Illustrated')
+    },
+    {
+      path: '/illustrated/about',
+      name: 'illustrated-about',
+      component: lazyLoad('IllustratedAbout')
     },
     {
       path: '/hacker',
@@ -37,6 +47,11 @@ const router = createRouter({
       path: '/retro',
       name: 'retro',
       component: lazyLoad('Retro')
+    },
+    {
+      path: '/retro/about',
+      name: 'retro-about',
+      component: lazyLoad('RetroAbout')
     },
     {
       path: '/retro/experience/:experienceName',

@@ -1,4 +1,83 @@
 import { defineStore } from 'pinia'
+import { i18n } from '../i18n/i18n'
+import { computed } from 'vue'
+
+
+const degg_description = computed(() => {
+    return i18n.global.t('degg.short_description');
+});
+
+const degg_role1_name = computed(() => {
+    return i18n.global.t('degg.roles.software_developer.name');
+});
+
+const degg_role1_description = computed(() => {
+    return i18n.global.t('degg.roles.software_developer.description');
+});
+
+const degg_role2_name = computed(() => {
+    return i18n.global.t('degg.roles.lead_software_developer.name');
+});
+
+const degg_role2_description = computed(() => {
+    return i18n.global.t('degg.roles.lead_software_developer.description');
+});
+
+const degg_role3_name = computed(() => {
+    return i18n.global.t('degg.roles.cto.name');
+});
+
+const degg_role3_description = computed(() => {
+    return i18n.global.t('degg.roles.cto.description');
+});
+
+const irradia_description = computed(() => {
+    return i18n.global.t('irradia.short_description');
+});
+
+const irradia_role_name = computed(() => {
+    return i18n.global.t('irradia.roles.web_developer.name');
+});
+
+const irradia_role_description = computed(() => {
+    return i18n.global.t('irradia.roles.web_developer.description');
+});
+
+const freelance_description = computed(() => {
+    return i18n.global.t('freelance_developer.short_description');
+});
+
+const freelance_role_name = computed(() => {
+    return i18n.global.t('freelance_developer.roles.software_and_web_developer.name');
+});
+
+const freelance_role_description = computed(() => {
+    return i18n.global.t('freelance_developer.roles.software_and_web_developer.description');
+});
+
+const travel_journal_description = computed(() => {
+    return i18n.global.t('travel_journal.short_description');
+});
+
+const travel_journal_role_name = computed(() => {
+    return i18n.global.t('travel_journal.roles.name');
+});
+
+const travel_journal_role_description = computed(() => {
+    return i18n.global.t('travel_journal.roles.description');
+});
+
+const coinsxplorer_description = computed(() => {
+    return i18n.global.t('coinsxplorers.short_description');
+});
+
+const coinsxplorer_role_name = computed(() => {
+    return i18n.global.t('coinsxplorers.roles.name');
+});
+
+const coinsxplorer_role_description = computed(() => {
+    return i18n.global.t('coinsxplorers.roles.description');
+});
 
 export const useExperienceStore = defineStore('experience', {
     state: () => {
@@ -6,7 +85,7 @@ export const useExperienceStore = defineStore('experience', {
         experiences: [
             {
                 name: 'degg',
-                description: 'Software and Lead developer experience, the main duties that i has were managing projects, clients and internal team',
+                description: degg_description,
                 date_from: '04/2021',
                 date_to: '04/2023',
                 main_image: '/assets/images/logo_degg.png',
@@ -20,20 +99,20 @@ export const useExperienceStore = defineStore('experience', {
                 ],
                 roles:[
                     {
-                        name: 'Software Developer',
-                        description: "Impostare, sviluppare o controllare la realizzazione dei progetti. Installare programmi o applicativi. Adottare strumenti e procedure per la progettazione funzionale e per lo sviluppo di interfacce. Adottare strumenti e procedure per la progettazione funzionale della base dati. Adottare procedure per la generazione di database con l'ausilio di strumenti di sviluppo. Realizzare siti web.",
+                        name: degg_role1_name,
+                        description: degg_role1_description,
                         date_from: '04/2021',
                         date_to: '10/2021'
                     },
                     {
-                        name: 'Lead Software Developer',
-                        description: "Creare, modificare o verificare software e altri applicativi. Curare i rapporti con i clienti. Fornire assistenza ai clienti. Gestire il team per raggiungere obiettivi e deadlines. Formare le risorse su tecnologie Frontend e Backend. Fornire consulenza ai clienti su software o sistemi informatici.",
+                        name: degg_role2_name,
+                        description: degg_role2_description,
                         date_from: '10/2021',
                         date_to: '12/2022'
                     },
                     {
-                        name: 'CTO',
-                        description: "Gestione dei piani tecnologici dell'azienda. Immaginare come le diverse forme di tecnologia verranno utilizzate in tutta l'azienda. Ricerca di modi per migliorare le risorse tecnologiche dell'azienda. Valutare se le nuove tecnologie sono appropriate per l'azienda da utilizzare. Garantire che le tecnologie attualmente in uso siano efficienti e apportare modifiche ove necessario.",
+                        name: degg_role3_name,
+                        description: degg_role3_description,
                         date_from: '12/2022',
                         date_to: '04/2023'
                     }
@@ -42,7 +121,7 @@ export const useExperienceStore = defineStore('experience', {
             },
             {
                 name: 'Irradia',
-                description: 'Software and Lead developer experience',
+                description: irradia_description,
                 date_from: '04/2021',
                 date_to: 'Active',
                 main_image: '/assets/images/irradia_logo.png',
@@ -56,8 +135,8 @@ export const useExperienceStore = defineStore('experience', {
                 ],
                 roles:[
                     {
-                        name: 'Web Developer',
-                        description: "Creare, modificare o verificare siti web. Curare i rapporti con i clienti. Fornire assistenza ai clienti",
+                        name: irradia_role_name,
+                        description: irradia_role_description,
                         date_from: '10/2021',
                         date_to: '12/2022'
                     }
@@ -65,8 +144,8 @@ export const useExperienceStore = defineStore('experience', {
                 skills: [ 'JavaScript', 'PHP', 'Wordpress', 'MySQL', 'SQL', 'Front-end Development', 'Web Standards', 'CSS', 'HTML' ]
             },
             {
-                name: 'Freelance developer',
-                description: 'Software and Lead developer experience',
+                name: 'Freelance Developer',
+                description: freelance_description,
                 date_from: '04/2021',
                 date_to: 'Active',
                 main_image: '/me.jpg',
@@ -85,8 +164,8 @@ export const useExperienceStore = defineStore('experience', {
                 ],
                 roles:[
                     {
-                        name: 'Software developer',
-                        description: "Creare, modificare o verificare siti web. Curare i rapporti con i clienti. Fornire assistenza ai clienti",
+                        name: freelance_role_name,
+                        description: freelance_role_description,
                         date_from: '10/2021',
                         date_to: '12/2022'
                     }
@@ -95,7 +174,7 @@ export const useExperienceStore = defineStore('experience', {
             },
             {
                 name: 'Travel Journal',
-                description: 'Social application focused on travellers',
+                description: travel_journal_description,
                 date_from: '02/2022',
                 date_to: '05/2022',
                 main_image: '/assets/images/travel_journal.jpg',
@@ -109,8 +188,8 @@ export const useExperienceStore = defineStore('experience', {
                 ],
                 roles:[
                     {
-                        name: 'Social Media focused on travellers',
-                        description: "Progetto software che consiste in una piattaforma social. Abbiamo un database MySQL con gestione utenti, ruoli, media, profilo e feed. I sistemi sono indipendenti, abbiamo dunque un Back-end in laravel che espone API e per quanto riguarda la parte Front-end consiste in un applicazione Vuejs che si interfaccia con le API",
+                        name: travel_journal_role_name,
+                        description: travel_journal_role_description,
                         date_from: '10/2021',
                         date_to: '12/2022'
                     }
@@ -119,7 +198,7 @@ export const useExperienceStore = defineStore('experience', {
             },
             {
                 name: 'Coinsxplorer',
-                description: 'Crypto tracking app with data aggregation functionality',
+                description: coinsxplorer_description,
                 date_from: '02/2021',
                 date_to: '08/2021',
                 main_image: '/assets/images/coinsxplorers_logo.jpg',
@@ -133,8 +212,8 @@ export const useExperienceStore = defineStore('experience', {
                 ],
                 roles:[
                     {
-                        name: 'Crypto Tracking App with data aggregation',
-                        description: "Progetto software che consiste in una piattaforma per il tracking delle criptovalute. Abbiamo dunque un backend in laravel che si interfaccia con le API di Coingecko per ricevere i prezzi quasi in tempo reale e applicare logiche di aggregazione. Per la parte frontend si ha invece un app react che si interfaccia con le API del backend",
+                        name: coinsxplorer_role_name,
+                        description: coinsxplorer_role_description,
                         date_from: '10/2021',
                         date_to: '12/2022'
                     }

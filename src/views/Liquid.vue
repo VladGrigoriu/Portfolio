@@ -1,10 +1,10 @@
 
 <template>
   <header id="business-header">
-    <div class="liquid-menu-item" @click="scrollToAbout">About</div>
-    <div class="liquid-menu-item" @click="scrollToSkills">Skills</div>
-    <div class="liquid-menu-item" @click="scrollToExperiences">Experiences</div>
-    <div class="liquid-menu-item" @click="scrollToContacts">Contacts</div>
+    <RouterLink to="/liquid/about"><div class="liquid-menu-item" @click="scrollToAbout">{{ $t('menu.about') }}</div></RouterLink>
+    <div class="liquid-menu-item" @click="scrollToSkills">{{ $t('menu.skills') }}</div>
+    <div class="liquid-menu-item" @click="scrollToExperiences">{{ $t('menu.experiences') }}</div>
+    <div class="liquid-menu-item" @click="scrollToContacts">{{ $t('menu.contacts') }}</div>
     <div id="liquid-menu-icon" @click="openMobileMenu">
       <FontAwesomeIcon icon="fa-solid fa-bars" />
     </div>
@@ -12,10 +12,10 @@
   </header>
   <div id="mobile-menu"> 
     <div id="close-icon" @click="closeMenu"><FontAwesomeIcon icon="fa-solid fa-x" /></div>
-    <div class="liquid-menu-item-mobile" @click="scrollToAboutMobile">About</div>
-    <div class="liquid-menu-item-mobile" @click="scrollToSkillsMobile">Skills</div>
-    <div class="liquid-menu-item-mobile" @click="scrollToExperiencesMobile">Experiences</div>
-    <div class="liquid-menu-item-mobile" @click="scrollToContactsMobile">Contacts</div>
+    <RouterLink to="/liquid/about"><div class="liquid-menu-item-mobile" @click="scrollToAboutMobile">{{ $t('menu.about') }}</div></RouterLink>
+    <div class="liquid-menu-item-mobile" @click="scrollToSkillsMobile">{{ $t('menu.skills') }}</div>
+    <div class="liquid-menu-item-mobile" @click="scrollToExperiencesMobile">{{ $t('menu.experiences') }}</div>
+    <div class="liquid-menu-item-mobile" @click="scrollToContactsMobile">{{ $t('menu.contacts') }}</div>
 
   </div>
     <section id="business-container">
@@ -24,12 +24,13 @@
 
             <div class="section" id="section-1" data-rate=".4" data-direction="vertical">
               <div id="glass-presentation">
-                <div>
+                <div class="liquid-introduction-t">
                   <div class="liquid introduction">
-                    <h2>Welcome</h2>
-                    <h2>Welcome</h2>
-                    <h2>Welcome</h2>
+                    <h2>Vlad Grigoriu</h2>
+                    <h2>Vlad Grigoriu</h2>
+                    <h2>Vlad Grigoriu</h2>
                   </div>
+                  <div class="introduction-descr">{{ $t('software_developer') }}</div>
                 </div>
                 <button class="liquid-button" @click="scrollToAbout">Next</button>
               </div>
@@ -45,13 +46,14 @@
             <div ref="about" class="section" id="section2">
               
               <div class="section-description" id="section2-desc">
-                <div class="liquid left-alignment">
-                  <h2>About</h2>
-                  <h2>About</h2>
-                  <h2>About</h2>
+                <div class="liquid left-alignment liquid-about">
+                  <h2>{{ $t('menu.about') }}</h2>
+                  <h2>{{ $t('menu.about') }}</h2>
+                  <h2>{{ $t('menu.about') }}</h2>
                 </div>
 
                 <p>{{ meStore.bio }}</p>
+                <RouterLink to="/liquid/about"><button class="liquid-read-more">Read More</button></RouterLink>
               </div>
 
 
@@ -68,9 +70,9 @@
               
               <div class="section-description2">
                 <div class="liquid right-alignment">
-                  <h2>Skills</h2>
-                  <h2>Skills</h2>
-                  <h2>Skills</h2>
+                  <h2>{{ $t('menu.skills') }}</h2>
+                  <h2>{{ $t('menu.skills') }}</h2>
+                  <h2>{{ $t('menu.skills') }}</h2>
                 </div>
 
                 <div id="skills-grid">
@@ -93,13 +95,13 @@
               <div id="experiences-intro">
                 
                 <div class="liquid left-alignment">
-                  <h2>Experiences</h2>
-                  <h2>Experiences</h2>
-                  <h2>Experiences</h2>
+                  <h2>{{ $t('menu.experiences') }}</h2>
+                  <h2>{{ $t('menu.experiences') }}</h2>
+                  <h2>{{ $t('menu.experiences') }}</h2>
                 </div>
   
                 <div class="section-image">
-                  <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right" />
+                  <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right desktop-exp-img" />
                 </div>
 
               </div>
@@ -126,14 +128,18 @@
                 
               </div>
 
+              <div class="section-image">
+                <img src="/assets/images/liquid_experiences.png" id="about-img" class="rotate-right mobile-exp-img" />
+              </div>
+
             </div>
             <div ref="contacts" class="section" data-rate=".1" data-direction="vertical">
               
               <div class="section-description2">
                 <div class="liquid right-alignment">
-                  <h2>Contacts</h2>
-                  <h2>Contacts</h2>
-                  <h2>Contacts</h2>
+                  <h2>{{ $t('menu.contacts') }}</h2>
+                  <h2>{{ $t('menu.contacts') }}</h2>
+                  <h2>{{ $t('menu.contacts') }}</h2>
                 </div>
 
                 <div>
@@ -263,7 +269,6 @@ export default {
   border: 0.3px solid #ccd7e8;
   padding: 3px;
   border-radius: 5px;
-  margin-top: 20px;
   min-width: 20%;
   font-size: 18px;
   cursor: pointer;
@@ -354,7 +359,6 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 10vh;
   width: 60%;
   color: var(--text-color);
 }
@@ -387,7 +391,7 @@ export default {
 }
 
 #glass-presentation{
-  height: 20%;
+  height: 25%;
   width: 40%;
   background-color: #00000001;
   color: var(--text-color);
@@ -412,10 +416,32 @@ export default {
     clip-path: circle(100%);
   }
 }
+.liquid-about{
+  margin-bottom: 10vh;
+}
+.liquid-read-more{
+  margin-top: 20px;
+	padding: 10px;
+	background-color: var(--text-color);
+	border: 1px solid var(--text-color);
+	cursor: pointer;
+  color: var(--primary-color);
+  border-radius: 20px;
+}
+.liquid-read-more:hover{
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
 .liquid {
   position: relative;
   display: flex;
   /* justify-content: center; */
+  align-items: center;
+}
+.liquid-introduction-t{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .left-alignment{
@@ -432,9 +458,13 @@ export default {
 }
 .introduction{
   justify-content: center;
+  width: 100%;
 }
 .introduction h2{
   font-size: 4vw;
+}
+.introduction-descr{
+  margin-top: 30px;
 }
 .liquid h2:nth-child(1) {
   color: var(--text-color);
@@ -633,7 +663,9 @@ export default {
   object-fit: cover;
   border-radius: 20px;
 }
-
+.mobile-exp-img{
+  display: none;
+}
 @media screen and (max-width:450px){
   .liquid-menu-item{
     display: none;
@@ -674,7 +706,8 @@ export default {
     right: 40px;
   }
   #glass-presentation{
-    width: 80%;
+    width: 90%;
+    height: 20%;
   }
   .introduction h2{
     font-size: 10vw;
@@ -766,6 +799,12 @@ export default {
   }
   #liquid-experiences{
     padding-bottom: 80px;
+  }
+  .desktop-exp-img{
+    display: none;
+  }
+  .mobile-exp-img{
+    display: block;
   }
 }
 </style>

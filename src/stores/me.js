@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia';
+import { i18n } from '../i18n/i18n'
+import { computed } from 'vue'
 
 function getAge() {
     var ageDifMs = Date.now() - new Date('2000-05-09');
@@ -6,10 +8,19 @@ function getAge() {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
+const bio = computed(() => {
+    return i18n.global.t('bio', { years: getAge().toString() });
+});
+
+const long_bio = computed(() => {
+    return i18n.global.t('long_bio', { years: getAge().toString() });
+});
+
 export const useMeStore = defineStore('me', {
     state: () => {
       return { 
-            bio: `I'm a ${ getAge() } years old software developer based in Rome, Italy. I have worked with Front-end and Back-end Systems and Technologies to help build great software on the web. During my work experience I have supported various companies in 𝒅𝒊𝒈𝒊𝒕𝒂𝒍𝒊𝒛𝒊𝒏𝒈 their business. I have experience in development, design, testing, bug fixing, maintenance and optimizations of web or mobile applications using the most modern development 𝒇𝒓𝒂𝒎𝒆𝒘𝒐𝒓𝒌𝒔.`,
+            bio: bio,
+            longBio: long_bio,
             skills: [
                 {
                     name: 'Javascript',
