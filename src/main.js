@@ -18,7 +18,8 @@ import {
     faMessage, 
     faChevronLeft,
     faBars,
-    faX
+    faX,
+    faCircleChevronDown
  } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
 import './assets/main.css'
@@ -48,7 +49,8 @@ library.add(
     faMessage, 
     faChevronLeft,
     faBars,
-    faX
+    faX,
+    faCircleChevronDown
     );
 
 const pinia = createPinia();

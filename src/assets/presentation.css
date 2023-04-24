@@ -92,7 +92,9 @@
 #mobile-scroller{
   display: none;
 }
-
+#user-direction{
+  display: none;
+}
 @keyframes slide{
   to{
     left: 0;
@@ -252,6 +254,13 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+  }
+  #short-description{
+    padding: 15px;
+    margin-left: 20px;
   }
   #customize-experience{
     position: absolute;
@@ -278,12 +287,82 @@
     transform: translate(-50%, 0);
     bottom: 5%;
     color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 0;
+    animation: show 300ms ease forwards;
+    animation-delay: 2s; */
   }
   .continue{
     margin-top: 30px;
     position: relative;
     bottom: 0;
     right: 0;
+  }
+  .scroll {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    opacity: 0;
+    animation: down 4s infinite, show 2s ease forwards;
+    -webkit-animation: down 4s infinite, show 300ms 2.5s ease forwards;
+    /* animation-delay: 1s; */
+  }
+  /* .scroll::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    width: 18px;
+    height: 18px;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
+    transform: rotate(-45deg);
+  } */
+  
+  @keyframes down {
+    5% {
+      bottom: 5%
+    }
+    10%{
+
+      bottom: 7%;
+    }
+    15%{
+      bottom: 5%;
+    }
+    20%{
+      bottom: 7%;
+    }
+    25% {
+      bottom: 5%;
+    }
+    100%{
+      bottom: 5%;
+    }
+  }
+  @-webkit-keyframes down {
+    5% {
+      bottom: 5%
+    }
+    10%{
+
+      bottom: 7%;
+    }
+    15%{
+      bottom: 5%;
+    }
+    20%{
+      bottom: 7%;
+    }
+    25% {
+      bottom: 5%;
+    }
+    100%{
+      bottom: 5%;
+    }
   }
 }
 

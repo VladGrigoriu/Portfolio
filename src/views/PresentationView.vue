@@ -7,11 +7,12 @@
         <div id="bio">
             <Name />
             <span id="short-description" class="cursive">{{ $t('short_description') }}</span>
-            <div id="mobile-scroller">
+            <div id="mobile-scroller" class="scroll" @click="scrollToCustomization">
                 <FontAwesomeIcon icon="fa-solid fa-caret-down" />
             </div>
+
         </div>
-        <div id="customize-experience">
+        <div id="customize-experience" ref="customization">
             <h2>{{ $t('customize') }}</h2><br>
             <h3>{{ $t('choose_theme') }}</h3>
             <ThemeSwitcher>
@@ -70,63 +71,11 @@ export default {
         document.getElementById('hacker-canvas').style.display='none';
     },
     methods:{
-        glitch() {
-            const canvas = document.querySelector("canvas");
-            const ctx = canvas.getContext("2d");
-            const colors = [
-            "#b4b2b5",
-            "#dfd73f",
-            "#6ed2dc",
-            "#66cf5d",
-            "#c542cb",
-            "#d0535e",
-            "#3733c9"];
-            let linePos = 0, rAF;
-            setTimeout(() => {
-                rAF = window.requestAnimationFrame(this.glitch);
-            }, 50);
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-
-            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');;
-            ctx.fillRect(0, 0, innerWidth, innerHeight);
-
-            // texts(colors[Math.floor(Math.random() * 7)]);
-            ctx.shadowBlur = 0;
-            ctx.shadowColor = "none";
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-            for (let i = 0; i < 1000; i++) {
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.01})`;
-                ctx.fillRect(
-                Math.floor(Math.random() * innerWidth),
-                Math.floor(Math.random() * innerHeight),
-                Math.floor(Math.random() * 30) + 1,
-                Math.floor(Math.random() * 30) + 1);
-
-
-                ctx.fillStyle = `rgba(0,0,0,${Math.random() * 0.1})`;
-                ctx.fillRect(
-                Math.floor(Math.random() * innerWidth),
-                Math.floor(Math.random() * innerHeight),
-                Math.floor(Math.random() * 25) + 1,
-                Math.floor(Math.random() * 25) + 1);
-
-            }
-
-            ctx.fillStyle = colors[Math.floor(Math.random() * 40)];
-            ctx.fillRect(
-            Math.random() * innerWidth,
-            Math.random() * innerHeight,
-            Math.random() * innerWidth,
-            Math.random() * innerHeight);
-
-            ctx.setTransform(1, 0, 0, .8, .2, 0);
-
-
-        },
         selectStyle(style){
             this.selectedStyle=style;
+        },
+        scrollToCustomization(){
+            this.$refs.customization.scrollIntoView({ behavior: "smooth" });
         },
         startExperience(){
             switch (this.selectedStyle){

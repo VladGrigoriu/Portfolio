@@ -130,10 +130,6 @@ export default {
   }
   @media screen and (max-width:450px){
 
-    #language-switcher-container{
-        width: 50px;
-    }
-
     #locales-dropdown{
         width: 100%;
         flex-direction: column;

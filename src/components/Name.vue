@@ -71,10 +71,9 @@ svg:hover .text-copy{
     svg{
         display: block;
         font: 10.5em 'Dancing Script', cursive;
-        width: 280px;
+        width: 100%;
+        margin-left: 0;
         height: 120px;
-        /* margin: 0 auto; */
-        margin-left: -30px;
     }
 }
 </style>
