@@ -5,7 +5,7 @@
                 <RouterLink :to="`/retro/experience/${experience.name}`"><h2 :class="(index+1) % 2 === 0 ? 'p-left p-top retro-subtitle' : 'p-right p-top retro-subtitle'">{{ experience.name }}</h2></RouterLink>
                 <p :class="(index+1) % 2 === 0 ? 'p-left text-left' : 'p-right text-right'">
                     {{ experience.description }} <br>
-                    <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><button class="read-more">Discover More  <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></button> </RouterLink>
+                    <RouterLink class="discover-more" :to="`/retro/experience/${experience.name}`"><button class="read-more">{{ $t('discover_more') }} <FontAwesomeIcon icon="fa-solid fa-chevron-right" /></button> </RouterLink>
                 </p>
                 <div :class="(index+1) % 2 === 0 ? 'experience-actions-left' : 'experience-actions-right'">
                     <div v-for="link in experience.links" :key="link.name" :class="(index+1) % 2 === 0 ? 'single-link-right' : 'single-link-left'">

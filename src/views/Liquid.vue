@@ -53,7 +53,7 @@
                 </div>
 
                 <p>{{ meStore.bio }}</p>
-                <RouterLink to="/liquid/about"><button class="liquid-read-more">Read More</button></RouterLink>
+                <RouterLink to="/liquid/about"><button class="liquid-read-more">{{ $t('discover_more') }}</button></RouterLink>
               </div>
 
 

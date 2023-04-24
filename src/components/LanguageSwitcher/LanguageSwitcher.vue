@@ -90,7 +90,7 @@ export default {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    animation: show 1.5s 750ms linear forwards;
+    animation: show 500ms 750ms linear forwards;
     animation-delay: 3s;
     opacity: 0;
 }

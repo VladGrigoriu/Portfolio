@@ -60,7 +60,7 @@
               </div>
 
               <p>{{ meStore.bio }}</p>
-              <RouterLink to="/illustrated/about"><button class="illustrated-button">Read More</button></RouterLink>
+              <RouterLink to="/illustrated/about"><button class="illustrated-button">{{ $t('discover_more') }}</button></RouterLink>
             </div>
 
           </div>
@@ -129,7 +129,7 @@
                         <img :src="experience.main_image" class="illustrated-experience-image" />
                       </div>
                       <p>{{ experience.description }}</p>
-                      <RouterLink class="exp-illustrated-button" :to="`/illustrated/experience/${experience.name}`">Discover More</RouterLink>
+                      <RouterLink class="exp-illustrated-button" :to="`/illustrated/experience/${experience.name}`">{{ $t('discover_more') }}</RouterLink>
                     </div>
                   </SwiperSlide>
                   <!-- <SwiperSlide :swiper-ref="2">Slide 2</SwiperSlide>
