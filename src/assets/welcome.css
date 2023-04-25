@@ -13,9 +13,17 @@
     font-size: 40px;
     font-weight: 700;
     color: var(--text-color);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--primary-color);
-
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--primary-color); */
+    -webkit-text-stroke: 1px var(--primary-color);
+}
+.text-stroke-trick::after {
+  content: attr(data-text);
+  color: var(--primary-color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -webkit-text-stroke: 0px var(--primary-color);
 }
 .drop {
     position: relative;

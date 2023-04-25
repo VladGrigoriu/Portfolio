@@ -32,7 +32,7 @@
                   </div>
                   <div class="introduction-descr">{{ $t('software_developer') }}</div>
                 </div>
-                <button class="liquid-button" @click="scrollToAbout">Next</button>
+                <!-- <button class="liquid-button" @click="scrollToAbout">Next</button> -->
               </div>
               
               <!-- <img src="/assets/images/liquid_bg.jpg" id="hero-image"/> -->
@@ -261,7 +261,7 @@ export default {
   height: 10vh;
   width: 100%;
   background-color: #00000001;
-  color: var(--text-color);
+  color: var(--liquid-contrast-menu);
   font-weight: 600;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -511,6 +511,7 @@ export default {
 }
 .introduction-descr{
   margin-top: 30px;
+  color: var(--liquid-contrast-menu);
 }
 .liquid h2:nth-child(1) {
   color: var(--text-color);
@@ -824,6 +825,8 @@ export default {
   .liquid-experience-odd, .liquid-experience-even{
     flex-direction: column;
     padding: 20px;
+    max-height: 40vh;
+    min-height: 40vh;
   }
   .liquid-experience-desc-odd, .liquid-experience-desc-even{
     align-items: center;
