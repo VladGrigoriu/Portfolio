@@ -256,7 +256,7 @@
     position: relative;
     width: 100%;
     margin-left: 0;
-    height: 100vh; 
+    height: 50%; 
   }
   #short-description{
     padding: 15px;
