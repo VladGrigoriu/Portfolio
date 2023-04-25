@@ -184,16 +184,33 @@ export default {
     return { meStore, contactStore, experienceStore };
   },
   mounted(){
-    $('#section-1').ripples({
-      resolution: 512,
-      dropRadius: 20,
-      perturbance: 0.04,
-    });
-    document.getElementsByTagName('canvas')[0].width=window.innerWidth;
-    console.log(document.getElementsByTagName('canvas')[0].width/2,parseInt(document.getElementsByTagName('canvas')[0].height/2))
-    $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.7)
+    if (!this.detectMobile() && !this.detectTablet()) {
+      $('#section-1').ripples({
+        resolution: 512,
+        dropRadius: 20,
+        perturbance: 0.04,
+      });
+      document.getElementsByTagName('canvas')[0].width=window.innerWidth;
+      $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.7);
+    }else{
+
+      $('#section-1').ripples({
+        resolution: 512,
+        dropRadius: 10,
+        perturbance: 0.01,
+      });
+      document.getElementsByTagName('canvas')[0].width=window.innerWidth;
+      $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.4)
+
+    }
   },
   methods:{
+    detectMobile() {
+        return window.innerHeight <= 915 && window.innerWidth <= 450;
+    },
+    detectTablet() {
+        return window.innerHeight <= 1200 && window.innerWidth <= 900;
+    },
     openMobileMenu(){
       document.getElementById('mobile-menu').style.left=0;
     },
