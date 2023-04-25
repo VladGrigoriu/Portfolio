@@ -196,12 +196,12 @@ export default {
 
       $('#section-1').ripples({
         resolution: 400,
-        dropRadius: 20,
+        dropRadius: 10,
         perturbance: 0.003, 
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       setTimeout(()=>{
-        $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2)-10, parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.4)
+        $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2)-10, parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.3)
       }, 1000)
 
     }
