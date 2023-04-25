@@ -195,12 +195,14 @@ export default {
     }else{
 
       $('#section-1').ripples({
-        resolution: 250,
+        resolution: 400,
         dropRadius: 20,
-        perturbance: 0.002,
+        perturbance: 0.005,
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
-      $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.4)
+      setTimeout(()=>{
+        $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2)-10, parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.4)
+      }, 1000)
 
     }
   },
