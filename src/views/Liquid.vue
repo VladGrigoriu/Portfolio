@@ -334,9 +334,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-image: url('/assets/images/liquid_bg.jpg');
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility:    hidden;
-  -ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
   background-size: cover;
   background-position: 50% 0;
   clip-path: circle(0);
