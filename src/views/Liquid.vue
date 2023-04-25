@@ -197,7 +197,7 @@ export default {
       $('#section-1').ripples({
         resolution: 400,
         dropRadius: 20,
-        perturbance: 0.005,
+        perturbance: 0.005, 
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       setTimeout(()=>{
