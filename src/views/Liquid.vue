@@ -195,9 +195,9 @@ export default {
     }else{
 
       $('#section-1').ripples({
-        resolution: 512,
-        dropRadius: 10,
-        perturbance: 0.001,
+        resolution: 250,
+        dropRadius: 20,
+        perturbance: 0.002,
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.4)
