@@ -260,7 +260,8 @@
   }
   #short-description{
     padding: 15px;
-    margin-left: 20px;
+    text-align: center;
+    width: 100%;
   }
   #customize-experience{
     position: absolute;

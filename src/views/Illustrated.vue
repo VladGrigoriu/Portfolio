@@ -586,6 +586,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 10vh;
 }
 .illustrated-experience-header>h2{
   width: 70%;
@@ -660,9 +661,19 @@ export default {
   }
   .shadows{
     font-size: 50px;
+    text-align: center;
+    width: 100%;
+  }
+  .section-text>p{
+    text-align: center;
+  }
+  .section-text>a{
+    width: 100%;
+    text-align: center;
   }
   #illustrated-hero-image{
     width: 90%;
+    margin-top: 50px;
   }
   .section-content-odd, .section-content-even{
     flex-direction: column;
@@ -692,8 +703,13 @@ export default {
   .section-text > p, #experiences-slider, #skills-slider{
     margin-top: 20px;
   }
+  #illustrated-experiences-section{
+    padding: 20px;
+  }
+  
   .section-text-even{
     justify-content: space-evenly;
+    align-items: center;
   }
   #illustrated-hero-text{
     width: 80%;

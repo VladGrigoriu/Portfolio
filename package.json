@@ -16,6 +16,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@lottiefiles/lottie-player": "^1.7.1",
+    "jquery": "^3.6.4",
+    "jquery.ripples": "^0.6.3",
     "pinia": "^2.0.33",
     "swiper": "^6.8.4",
     "three": "^0.134.0",
