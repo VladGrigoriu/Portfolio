@@ -193,19 +193,6 @@ export default {
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       $('#section-1').ripples('drop',  document.getElementsByTagName('canvas')[0].width/2000, document.getElementsByTagName('canvas')[0].height/2, 20, 0.7);
-    }else{
-      
-      $('#section-1').ripples({
-        resolution: 300,
-        dropRadius: 10,
-        perturbance: 0.0015, 
-        imageUrl: '/assets/images/liquid_bg.jpg'
-      });
-      document.getElementsByTagName('canvas')[0].width=window.innerWidth;
-      setTimeout(()=>{
-        $('#section-1').ripples('drop',  (document.getElementsByTagName('canvas')[0].width/2)-10, document.getElementsByTagName('canvas')[0].height/2, 20, 0.3)
-      }, 1000)
-
     }
   },
   methods:{
@@ -789,6 +776,22 @@ export default {
       align-items: center;
       justify-content: center;
   }
+  #section-1{
+  width: 100%;
+  height: 115vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/assets/images/liquid_bg.jpg');
+  -webkit-transform: translate3d(0,0,0);
+  background-size: cover;
+  background-position: 50% 0;
+  clip-path: circle(0);
+  animation: reveal 3s ease forwards;
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
   .rotate-left, .rotate-right{
     transform: rotateZ(0deg);
   }
