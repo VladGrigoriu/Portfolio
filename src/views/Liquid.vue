@@ -189,15 +189,17 @@ export default {
         resolution: 512,
         dropRadius: 20,
         perturbance: 0.04,
+        imageUrl: '/assets/images/liquid_bg.jpg'
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.7);
     }else{
 
       $('#section-1').ripples({
-        resolution: 400,
+        resolution: 300,
         dropRadius: 10,
         perturbance: 0.003, 
+        imageUrl: '/assets/images/liquid_bg.jpg'
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       setTimeout(()=>{
@@ -333,7 +335,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('/assets/images/liquid_bg.jpg');
+  /* background-image: url('/assets/images/liquid_bg.jpg'); */
   -webkit-transform: translate3d(0,0,0);
   background-size: cover;
   background-position: 50% 0;
@@ -514,7 +516,7 @@ export default {
   color: var(--liquid-contrast-menu);
 }
 .liquid h2:nth-child(1) {
-  color: var(--text-color);
+  color: var(--neom-btn2);
   text-shadow: -2px 2px 0px var(--name-color), -4px 4px 0px var(--name-color),
     -18px 18px 50px rgba(0, 0, 0, 0.5);
 }
@@ -776,7 +778,7 @@ export default {
     justify-content: center;
   }
   .liquid h2{
-    font-size: 10vw;
+    font-size: 11vw;
   }
   .section-description > p{
     text-align: center;
@@ -807,9 +809,6 @@ export default {
     height: auto;
     padding-top: 40px;
     padding-bottom: 40px;
-  }
-  .mobile-medal{
-    margin-top: 20px;
   }
   #experiences-intro{
     flex-direction: column;
