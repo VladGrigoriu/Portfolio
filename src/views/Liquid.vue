@@ -192,9 +192,9 @@ export default {
         imageUrl: '/assets/images/liquid_bg.jpg'
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
-      $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2000), parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.7);
+      $('#section-1').ripples('drop',  document.getElementsByTagName('canvas')[0].width/2000, document.getElementsByTagName('canvas')[0].height/2, 20, 0.7);
     }else{
-
+      
       $('#section-1').ripples({
         resolution: 300,
         dropRadius: 10,
@@ -203,7 +203,7 @@ export default {
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
       setTimeout(()=>{
-        $('#section-1').ripples('drop',  parseInt(document.getElementsByTagName('canvas')[0].width/2)-10, parseInt(document.getElementsByTagName('canvas')[0].height/2), 20, 0.3)
+        $('#section-1').ripples('drop',  (document.getElementsByTagName('canvas')[0].width/2)-10, document.getElementsByTagName('canvas')[0].height/2, 20, 0.3)
       }, 1000)
 
     }
