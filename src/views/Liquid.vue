@@ -198,7 +198,7 @@ export default {
       $('#section-1').ripples({
         resolution: 300,
         dropRadius: 10,
-        perturbance: 0.003, 
+        perturbance: 0.0015, 
         imageUrl: '/assets/images/liquid_bg.jpg'
       });
       document.getElementsByTagName('canvas')[0].width=window.innerWidth;
