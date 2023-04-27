@@ -35,7 +35,7 @@
                 <!-- <button class="liquid-button" @click="scrollToAbout">Next</button> -->
               </div>
               
-              <!-- <img src="/assets/images/liquid_bg.jpg" id="hero-image"/> -->
+              <img src="/assets/images/liquid_bg.jpg" id="hero-image"/>
               
               <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,197.3C384,192,480,224,576,208C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -404,19 +404,7 @@ export default {
   width: 40%;
 }
 #hero-image{
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  clip-path: circle(0);
-  animation: reveal 3s ease forwards;
-  -moz-animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  display: none;
 }
 
 #glass-presentation{
@@ -711,6 +699,22 @@ export default {
   .liquid-menu-item{
     display: none;
   }
+  #hero-image{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    clip-path: circle(0);
+    animation: reveal 3s ease forwards;
+    -moz-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    display: block;
+  }
   #liquid-menu-icon{
     display: block;
   }
@@ -782,15 +786,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('/assets/images/liquid_bg.jpg');
-  -webkit-transform: translate3d(0,0,0);
+  /* background-image: url('/assets/images/liquid_bg.jpg'); */
+  /* -webkit-transform: translate3d(0,0,0);
   background-size: cover;
-  background-position: 50% 0;
-  clip-path: circle(0);
-  animation: reveal 3s ease forwards;
-  -moz-animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  background-position: 50% 0; */
+  clip-path: circle(100%);
+  animation: none;
 }
   .rotate-left, .rotate-right{
     transform: rotateZ(0deg);
