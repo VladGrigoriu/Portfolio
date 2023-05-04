@@ -23,6 +23,7 @@ a{
   --primary-color:#e8ecf3;
   --secondary-color:#dee6f4;
   --text-color:#161c23;
+  --text-color-contrast:#161c23;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
   --wave-color:#161c2348;
@@ -40,6 +41,7 @@ a{
   --primary-color:#161c23;
   --secondary-color:#111417;
   --text-color:#ccd7e8;
+  --text-color-contrast:#161c23;
   --name-color: hsl(230, 40%, 80%);
   --name-color2: hsl(230, 15%, 92%);
   --wave-color:#ccd7e849;
@@ -58,6 +60,7 @@ a{
   --primary-color: #E0FFFF;
   --secondary-color:#cfffff;
   --text-color:#1b2424;
+  --text-color-contrast:#1b2424;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
   --wave-color:#1b24243d;
@@ -75,6 +78,7 @@ a{
   --primary-color: #fff0db;
   --secondary-color:#fae5c7;
   --text-color:#101717;
+  --text-color-contrast:#101717;
   --name-color: hsl(228, 10%, 10%);
   --name-color2: hsl(230, 5%, 23%);
   --wave-color:#1017173e;
@@ -93,6 +97,7 @@ a{
   --primary-color: #003366;
   --secondary-color:#002951;
   --text-color:#ccd7e8;
+  --text-color-contrast:#003366;
   --name-color: hsl(230, 40%, 80%);
   --name-color2: hsl(230, 15%, 92%);
   --wave-color:#ccd7e83e;

@@ -1,5 +1,8 @@
 
 <template>
+  <div id="disable-effect" @click="isWaterActive ? disableWater() : enableWater()">
+    <FontAwesomeIcon :icon="isWaterActive ? 'fa-droplet-slash' : 'fa-droplet'" id="droplet-icon" />
+  </div>
   <header id="business-header">
     <RouterLink to="/liquid/about"><div class="liquid-menu-item" @click="scrollToAbout">{{ $t('menu.about') }}</div></RouterLink>
     <div class="liquid-menu-item" @click="scrollToSkills">{{ $t('menu.skills') }}</div>
@@ -174,7 +177,8 @@ export default {
   data(){
     return {
       heroImage: null,
-      initialClip: 100
+      initialClip: 100,
+      isWaterActive: true
     }
   },
   setup(){
@@ -238,7 +242,22 @@ export default {
 		},
 		restartExperience(){
 			this.$router.push('/introduction');
-		}
+		},
+    disableWater(){
+      $('#section-1').ripples("destroy");
+      document.getElementById('section-1').style.backgroundImage='url("/assets/images/liquid_bg.jpg")';
+      this.isWaterActive=false;
+
+    },
+    enableWater(){
+      $('#section-1').ripples({
+        resolution: 512,
+        dropRadius: 20,
+        perturbance: 0.04,
+        imageUrl: '/assets/images/liquid_bg.jpg'
+      });
+      this.isWaterActive=true;
+    }
   }
 }
 </script>
@@ -300,6 +319,24 @@ export default {
 .liquid-menu-item{
   cursor: pointer;
 }
+#disable-effect{
+  width: 10vh;
+  height: 10vh;
+  background-color: var(--liquid-contrast-menu);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  z-index: 99;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#droplet-icon{
+  width: 100%;
+  color: var(--text-color-contrast);
+}
 #sliding-bg-business{
     position: fixed;
     top: 0;
@@ -322,7 +359,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-image: url('/assets/images/liquid_bg.jpg'); */
   -webkit-transform: translate3d(0,0,0);
   background-size: cover;
   background-position: 50% 0;
@@ -697,6 +733,9 @@ export default {
 }
 @media screen and (max-width:450px){
   .liquid-menu-item{
+    display: none;
+  }
+  #disable-effect{
     display: none;
   }
   #hero-image{
